@@ -16,6 +16,7 @@ public class Slash : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(mov.x, mov.y, 0) * speed * Time.deltaTime;
+        
     }
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)

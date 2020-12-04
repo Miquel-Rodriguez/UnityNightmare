@@ -11,6 +11,7 @@ public class warp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            // desplazar a other (player) a la posición target del
             other.transform.position = target.transform.GetChild(0).transform.position;
         }
     }

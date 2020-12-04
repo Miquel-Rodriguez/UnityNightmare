@@ -5,7 +5,6 @@ using UnityEngine;
 public class MovimientoPlyaer : MonoBehaviour
 {
     public float speed = 4f;
-
     private Animator anim;
     Rigidbody2D rb2d;
     Vector2 mov;
@@ -18,20 +17,23 @@ public class MovimientoPlyaer : MonoBehaviour
 
     bool movePrevent;
 
+    //ataque a distancia
+    public GameObject arrowprefab;
+    float arrowRotation = 0;
+    private float nextFireTime =0;
+    public float cooldawnFlecha=2;
 
     void Start()
     {
+        //inicializamos las variables con los componentes del objeto
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
-
-       
     }
 
     void Update()
     {
-
         Movements();
 
         Animations();
@@ -40,21 +42,51 @@ public class MovimientoPlyaer : MonoBehaviour
 
         ChargedAttack();
 
+        LanzarAtaque();
+
         dash();
 
         PreventMovement();
     }
 
+    void LanzarAtaque()
+    {
+        
+        if (Time.time >= nextFireTime)
+        {
+            if (Input.GetKeyDown("1"))
+            {
+                nextFireTime = Time.time + cooldawnFlecha;
+
+                //Hacer la variación de grados según la posición de movimiento
+                arrowRotation = Mathf.Atan2(
+                anim.GetFloat("movY"),
+                anim.GetFloat("movX"))
+                * Mathf.Rad2Deg;
+
+                //instanciar el objeto arraowprefab
+                Instantiate(arrowprefab, transform.position, Quaternion.Euler(0, 0, arrowRotation + 90));
+            }
+        }
+    }
+
+
     void Movements()
     {
+        //Indicar hacía donde sera el movimiento poniendo la dirección en un vector2
         mov = new Vector2(
            Input.GetAxisRaw("Horizontal"),
            Input.GetAxisRaw("Vertical")
        );
+
+        //Forma2 de mover
+        rb2d.AddForce(mov * speed * Time.deltaTime);
     }
 
+    //hacer las animaciones de caminar según los ejes x e y
     void Animations()
     {
+        
         if (mov == Vector2.zero){
             anim.SetBool("Walking", false);
         }
@@ -68,17 +100,23 @@ public class MovimientoPlyaer : MonoBehaviour
 
     void Attack()
     {
+        //cojer la información de la animación de ataque
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         bool attacking = stateInfo.IsName("Attack");
+
+        //si pulsamos k activamos la animación de atacar
         if (Input.GetKeyDown("k") && !attacking)
         {
             anim.SetTrigger("attacking");
         }
-        //en conres del mov es poden posar numeros per contrlarlo de forma més exacta(creo)
+
+        //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
         if (mov != Vector2.zero) attackCollider.offset = new Vector2(mov.x / 5, mov.y / 5);
 
         if (attacking)
         {
+            //Activar el boxCollider solo cuando la animación esté a mitad del precoso
+            //es para hacerlo más relista()
             float playbackTime = stateInfo.normalizedTime;
             if (playbackTime > 0.33 && playbackTime < 0.66)
             {
@@ -107,7 +145,7 @@ public class MovimientoPlyaer : MonoBehaviour
             //gameObject.transform.Translate(anim.GetFloat("movX"), anim.GetFloat("movY"), 0f);
 
             //Dash invisible, se puede ejecutar parado
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*200000*Time.deltaTime, anim.GetFloat("movY")*200000 * Time.deltaTime));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*100000*Time.deltaTime, anim.GetFloat("movY")*100000 * Time.deltaTime));
         }
 
     }
@@ -115,7 +153,6 @@ public class MovimientoPlyaer : MonoBehaviour
 
 
     /// /////////////////////////////////////////////chargedAttack no funciona
-
     void ChargedAttack()
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -157,6 +194,7 @@ public class MovimientoPlyaer : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
+        //Forma de mover num 1
+        //rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
     }
 }

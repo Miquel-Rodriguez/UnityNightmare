@@ -536,6 +536,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7660831332009768161, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7660831332009768166, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
       propertyPath: m_Offset.y
@@ -606,6 +611,17 @@ PrefabInstance:
       propertyPath: chargedAttackPrefab
       value: 
       objectReference: {fileID: 260485991044498600, guid: 10ce12ed81a6440439f17fda5f438feb,
+        type: 3}
+    - target: {fileID: 7660831332009769754, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: speed
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660831332009769754, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: arrowprefab
+      value: 
+      objectReference: {fileID: 2996173342790011733, guid: e2e1cf109cca08846b353c6c51fee276,
         type: 3}
     - target: {fileID: 7660831332009769755, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
