@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Attack
+  - Enemy
+  - RockAttack
+  - BoxPlayer
   layers:
   - Default
   - TransparentFX

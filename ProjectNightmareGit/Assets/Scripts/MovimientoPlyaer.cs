@@ -11,9 +11,11 @@ public class MovimientoPlyaer : MonoBehaviour
 
     CircleCollider2D attackCollider;
 
-    //Dash
-    public float timeForDisableDash;
+    //////////////
     public GameObject chargedAttackPrefab;
+
+    public int maxLife = 100;
+    private int life;
 
     bool movePrevent;
 
@@ -30,6 +32,7 @@ public class MovimientoPlyaer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
+        life = maxLife;
     }
 
     void Update()
@@ -197,4 +200,5 @@ public class MovimientoPlyaer : MonoBehaviour
         //Forma de mover num 1
         //rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
     }
+
 }
