@@ -197,8 +197,8 @@ public class MovimientoPlyaer : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Forma de mover num 1
-        //rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
+       // Forma de mover num 1
+       // rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
     }
 
 }

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
+
     public float visionRadius;
     public float attackRadius;
     public float speed;
 
     public GameObject rockPrefab;
-    public float attackSpeed = 2f;
+    public float attackSpeed;
     bool attacking;
 
     public int maxHp = 3;
@@ -28,17 +29,16 @@ public class Enemy1 : MonoBehaviour
         initialPosition = transform.position;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
         hp = maxHp;
+
     }
 
 
     void Update()
     {
+ 
         if (player != null)
         {
-
-       
         Vector3 target = initialPosition;
 
         RaycastHit2D hit = Physics2D.Raycast(
@@ -57,7 +57,6 @@ public class Enemy1 : MonoBehaviour
 
         float distance = Vector3.Distance(target, transform.position);
         Vector3 dir = (target - transform.position).normalized;
-
         if(distance < attackRadius)
         {
             anim.speed=1;
@@ -66,7 +65,7 @@ public class Enemy1 : MonoBehaviour
             anim.Play("Enemy_walk", -1, 0);
             if (!attacking) StartCoroutine(attack(attackSpeed));
         }
-        else
+        if(distance<visionRadius && distance > attackRadius)
         {
             rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
             anim.SetFloat("movX", dir.x);
@@ -80,8 +79,9 @@ public class Enemy1 : MonoBehaviour
             anim.SetBool("walking", false);
         }
 
-        Debug.DrawLine(transform.position, target, Color.green);
+        Debug.DrawLine(target, transform.position, Color.green);
         }
+        
     }
 
     private void OnDrawGizmosSelected()

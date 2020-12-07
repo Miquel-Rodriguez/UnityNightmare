@@ -30,7 +30,16 @@ public class AttackStone : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "BoxPlayer" || collision.transform.tag == "Attack")
+        if(collision.transform.tag == "BoxPlayer" || collision.transform.tag == "Attack" || collision.transform.tag == "Wall" || collision.transform.tag == "Door")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("wall");
+        if(collision.transform.tag == "Wall")
         {
             Destroy(gameObject);
         }

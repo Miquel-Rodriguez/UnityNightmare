@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!61 &724922574
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317486321364143959}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.52999514, y: 0.25001606}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2695235, y: 0.70415884}
+  m_EdgeRadius: 0
+--- !u!114 &8197973801535341726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317486321364143959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cc48854ab8d104a9166601acc75461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigos:
+  - {fileID: 1993412157177471049, guid: 8cb4c5e1e01c2344bb695ca540def714, type: 3}
 --- !u!1 &7558448885210226098
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +161,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5825788597998058880, guid: eb9122fd0e51f19489fadd5991d5ba3e,
         type: 3}
+    - target: {fileID: 5985226565715466874, guid: 39a633f107c49f24893c8d8208e83d2e,
+        type: 3}
+      propertyPath: doors
+      value: R
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985226565715466874, guid: 39a633f107c49f24893c8d8208e83d2e,
+        type: 3}
+      propertyPath: doorTile
+      value: 
+      objectReference: {fileID: 4636280394576217653, guid: d620270271d6fda468706a36e8acca23,
+        type: 3}
+    - target: {fileID: 5985226565715466874, guid: 39a633f107c49f24893c8d8208e83d2e,
+        type: 3}
+      propertyPath: plantilla
+      value: 
+      objectReference: {fileID: 7558448885210226124}
     - target: {fileID: 5985226565715466876, guid: 39a633f107c49f24893c8d8208e83d2e,
         type: 3}
       propertyPath: m_Name
@@ -196,8 +252,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.8572881
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1614693264377067754, guid: 39a633f107c49f24893c8d8208e83d2e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 39a633f107c49f24893c8d8208e83d2e, type: 3}
+--- !u!1 &4317486321364143959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5985226565715466876, guid: 39a633f107c49f24893c8d8208e83d2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7558448883705517355}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4317486321364143958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5985226565715466877, guid: 39a633f107c49f24893c8d8208e83d2e,
