@@ -10,7 +10,7 @@ public class GeneracionEnemigos : MonoBehaviour
     private void Start()
     {
         GameObject toInstantiate = enemigos[0];
-        int repeats = Random.Range(0,1);
+        int repeats = Random.Range(2,3);
         transformP = transform.GetComponentInParent<Transform>();
         for (int i = 0; i < repeats; i++)
         {
