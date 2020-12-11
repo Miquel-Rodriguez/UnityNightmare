@@ -18,6 +18,7 @@ public class Destroyable : MonoBehaviour
         //si colisiona con un objeto con el tag Attackn 
         if(collision.tag == "Attack")
         {
+            print("destroy");
             //activa animación de destruir
             anim.Play(destroyState);
             //esperamos timeForDisable antes de hacer la siguiente opción
@@ -26,6 +27,8 @@ public class Destroyable : MonoBehaviour
             c.enabled = false;
         }
     }
+
+   
   
 
     void Update()

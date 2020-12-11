@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 7660831332009769755}
-  life: 100
+  life: 300
 --- !u!61 &1068088714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6000
-  chargedAttackPrefab: {fileID: 260485991044498600, guid: 10ce12ed81a6440439f17fda5f438feb,
+  chargedAttackPrefab: {fileID: 2996173342790011733, guid: e2e1cf109cca08846b353c6c51fee276,
     type: 3}
   maxLife: 100
   arrowprefab: {fileID: 2996173342790011733, guid: e2e1cf109cca08846b353c6c51fee276,

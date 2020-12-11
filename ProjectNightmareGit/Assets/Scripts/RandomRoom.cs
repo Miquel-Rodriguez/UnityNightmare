@@ -14,10 +14,9 @@ public class RandomRoom : MonoBehaviour
     public GameObject[] wallTiles;
     public GameObject[] outTiles;
     public GameObject Room;
-    //public GameObject[] objectsMap;
-    public string doors;
-    public GameObject doorTile;
-
+    public GameObject[] objectsMap;
+    //public string doors;
+    //public GameObject doorTile;
     public Transform plantilla;
 
     private Transform boardHolder;
@@ -66,82 +65,20 @@ public class RandomRoom : MonoBehaviour
                 instance.transform.SetParent(boardHolder);
             }
         }
-        SetupDoors(doors);
         SetupObjectsMap();
         boardHolder.SetParent(Room.transform);
         boardHolder.Translate(new Vector3(Room.transform.position.x, Room.transform.position.y, 0f));
     }
 
-    public void SetupDoors(string doors)
-    {
-        switch (doors)
-        {
-            case "T":
-                topDoor();
-                break;
-            case "B":
-                botDoor();
-                break;
-            case "L":
-                leftDoor();
-                break;
-            case "R":
-                rightDoor();
-                break;
-            case "TR":
-                break;
-            case "TB":
-                topDoor();
-                botDoor();
-                break;
-            case "TL":
-                break;
-            case "BL":
-                break;
-            case "BR":
-                break;
-            case "LR":
-                break;
-            case "3T":
-                break;
-            case "3B":
-                break;
-            case "3R":
-                break;
-            case "3L":
-                break;
-            case "A":
-                break;
-        }
-    }
-
-    public void topDoor()
-    {
-
-        GameObject instance = Instantiate(doorTile, new Vector3(plantilla.position.x+9f, plantilla.position.y+rows+0.5f, 0f), Quaternion.identity);
-        instance.transform.SetParent(gameObject.transform);
-    }
-    public void botDoor()   
-    {
-        GameObject instance = Instantiate(doorTile, new Vector3(plantilla.position.x + 9f, plantilla.position.y + 1.5f, 0f), Quaternion.AngleAxis(180, Vector3.forward));
-        instance.transform.SetParent(gameObject.transform);
-    }
-    public void leftDoor()
-    {
-        GameObject instance = Instantiate(doorTile, new Vector3(plantilla.position.x + 1.5f, plantilla.position.y +rows/2+ 1f, 0f), Quaternion.AngleAxis(90, Vector3.forward));
-        instance.transform.SetParent(gameObject.transform);
-
-    }
-    public void rightDoor()
-    {
-        GameObject instance = Instantiate(doorTile, new Vector3(plantilla.position.x + 16.5f, plantilla.position.y + rows / 2 + 1f, 0f), Quaternion.AngleAxis(-90, Vector3.forward));
-        instance.transform.SetParent(gameObject.transform);
-    }
-
     public void SetupObjectsMap()
-    {
-        //GameObject instance = Instantiate(toInstantiate, new Vector3(8f, 0f, 0f), Quaternion.identity);
-        //instance.transform.SetParent(boardHolder);
+    { 
+        GameObject toInstantiate = objectsMap[0];
+        int repeats = Random.Range(2, 5);
+        for (int i = 0; i < repeats; i++)
+        {
+            GameObject instance = Instantiate(toInstantiate, new Vector3(plantilla.position.x + Random.Range(3, 14), plantilla.position.y + Random.Range(3, 6), 0f), Quaternion.identity);
+            instance.transform.SetParent(Room.transform);
+        }
     }
 
     void Start()
