@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Destroyable : MonoBehaviour
 {
-
+    private InsTicket insTicket;
     public string destroyState;
     public float timeForDisable;
     Animator anim;
@@ -15,9 +15,13 @@ public class Destroyable : MonoBehaviour
 
     IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
-        //si colisiona con un objeto con el tag Attackn 
+        //si colisiona con un objeto con el tag Attack 
         if(collision.tag == "Attack")
         {
+            //Instanicar tickets
+            insTicket = GameObject.FindGameObjectWithTag("InTicket").GetComponent<InsTicket>();
+            insTicket.InstanceTickets(1, 2, gameObject);
+
             print("destroy");
             //activa animación de destruir
             anim.Play(destroyState);
@@ -38,7 +42,10 @@ public class Destroyable : MonoBehaviour
 
         //si ha acabado la animación destruye el objeto
         if (stateInfo.IsName(destroyState) && stateInfo.normalizedTime >= 1)
+        {
             Destroy(gameObject);
+        }
+            
         
     }
 }

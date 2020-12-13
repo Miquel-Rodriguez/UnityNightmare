@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MovimientoPlyaer : MonoBehaviour
 {
+
+    public GameObject InitialMap;
+
     public float speed = 4f;
     private Animator anim;
     Rigidbody2D rb2d;
@@ -19,11 +22,17 @@ public class MovimientoPlyaer : MonoBehaviour
 
     bool movePrevent;
 
+    float timeForDisableDash = 1f;
+
     //ataque a distancia
     public GameObject arrowprefab;
-    float arrowRotation = 0;
-    private float nextFireTime =0;
+    float arrowRotation;
+    private float nextFireTime;
     public float cooldawnFlecha=2;
+
+    private int InitialTtickets = 0;
+    private int Tickets;
+
 
     void Start()
     {
@@ -33,6 +42,9 @@ public class MovimientoPlyaer : MonoBehaviour
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
         life = maxLife;
+        Tickets = InitialTtickets;
+
+        Camera.main.GetComponent<MainCamera>().SetBounds(InitialMap);
     }
 
     void Update()
@@ -81,9 +93,6 @@ public class MovimientoPlyaer : MonoBehaviour
            Input.GetAxisRaw("Horizontal"),
            Input.GetAxisRaw("Vertical")
        );
-
-        //Forma2 de mover
-        rb2d.AddForce(mov * speed * Time.deltaTime);
     }
 
     //hacer las animaciones de caminar según los ejes x e y
@@ -134,24 +143,26 @@ public class MovimientoPlyaer : MonoBehaviour
     }
 
 
-    void dash()
+    public void  dash()
     {
-        if (Input.GetKeyDown("e"))
+        //if (Input.GetKeyDown("e"))
+        //{
 
-        {
             //Dash Visible (no actua si está quieto)
-            //           speed *= 4;
-            //            yield return new WaitForSeconds(timeForDisableDash); 
-            //             speed /= 4;
+            //print("key e");
+            //speed *= 4;
+            //yield return new WaitForSeconds(timeForDisableDash);
+            //speed /= 4;
 
             //Dash invisible, se puede ejecutar parado
             //gameObject.transform.Translate(anim.GetFloat("movX"), anim.GetFloat("movY"), 0f);
 
             //Dash invisible, se puede ejecutar parado
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*100000*Time.deltaTime, anim.GetFloat("movY")*100000 * Time.deltaTime));
-        }
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*100000*Time.deltaTime, anim.GetFloat("movY")*100000* Time.deltaTime));
+        //}
 
     }
+
 
 
 
@@ -197,8 +208,24 @@ public class MovimientoPlyaer : MonoBehaviour
 
     void FixedUpdate()
     {
-       // Forma de mover num 1
-       // rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
+        // Forma de mover num 1
+        // rb2d.MovePosition(rb2d.position + mov * speed * Time.deltaTime);
+        //Forma2 de mover 
+        rb2d.AddForce(mov * speed * Time.deltaTime);
+
+        if (Input.GetKeyDown("e"))
+        {
+            print("key e");
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(anim.GetFloat("movX") * 100000 * Time.deltaTime, anim.GetFloat("movY") * 100000 * Time.deltaTime));
+        }
+        
     }
+
+    public void PlusTicket()
+    {
+        Tickets++;
+        print(Tickets);
+    }
+    
 
 }

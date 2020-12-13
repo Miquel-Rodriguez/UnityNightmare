@@ -10,6 +10,8 @@ TagManager:
   - BoxPlayer
   - Wall
   - Door
+  - InTicket
+  - Ticket
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - DetectEnemy
   - 
   - 
   - 

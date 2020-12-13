@@ -17,7 +17,7 @@ public class GeneracionEnemigos : MonoBehaviour
         for (int i = 0; i < repeats; i++)
         {
             GameObject instance = Instantiate(toInstantiate, new Vector3(transformP.position.x+Random.Range(3, 14), transformP.position.y+ Random.Range(3, 6), 0f), Quaternion.identity);
-            
+           
         }
 
     }
