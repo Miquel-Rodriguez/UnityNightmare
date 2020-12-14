@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lesslife : MonoBehaviour
 {
     public GameObject target;
-    public int life = 11; 
+    public int life = 12; 
     public SpriteLives spriteLives;
 
     public void Awake()

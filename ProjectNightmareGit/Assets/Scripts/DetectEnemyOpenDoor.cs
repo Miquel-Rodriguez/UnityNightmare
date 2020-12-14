@@ -9,7 +9,7 @@ public class DetectEnemyOpenDoor : MonoBehaviour
 
 
 
-
+    //se puede creaer una hitbox que sdesaparezca al detectar el primer enemigo (solución guarra)
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("RockAttack"))
@@ -19,7 +19,7 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 porta.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
-        else if (!(collision.transform.CompareTag("Attack")) || !(collision.transform.CompareTag("BoxPlayer")) || !(collision.transform.CompareTag("Wall")))
+        else if (!collision.transform.CompareTag("Attack"))
         {
             print(collision.transform.tag);
             foreach (GameObject porta in portes)
@@ -27,6 +27,5 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 porta.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
-
     }
 }

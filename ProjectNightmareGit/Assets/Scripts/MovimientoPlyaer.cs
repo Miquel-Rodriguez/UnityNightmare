@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovimientoPlyaer : MonoBehaviour
 {
+    TicketsUI ticketsUI;
 
     public GameObject InitialMap;
 
@@ -45,6 +46,7 @@ public class MovimientoPlyaer : MonoBehaviour
         Tickets = InitialTtickets;
 
         Camera.main.GetComponent<MainCamera>().SetBounds(InitialMap);
+        ticketsUI = GameObject.FindObjectOfType<TicketsUI>();
     }
 
     void Update()
@@ -216,7 +218,7 @@ public class MovimientoPlyaer : MonoBehaviour
         if (Input.GetKeyDown("e"))
         {
             print("key e");
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(anim.GetFloat("movX") * 100000 * Time.deltaTime, anim.GetFloat("movY") * 100000 * Time.deltaTime));
+            rb2d.AddForce(new Vector2(anim.GetFloat("movX") * 100000 * Time.deltaTime, anim.GetFloat("movY") * 100000 * Time.deltaTime));
         }
         
     }
@@ -225,6 +227,8 @@ public class MovimientoPlyaer : MonoBehaviour
     {
         Tickets++;
         print(Tickets);
+        ticketsUI.changeTicketsText(Tickets);
+
     }
     
 

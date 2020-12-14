@@ -14,6 +14,7 @@ public class warp : MonoBehaviour
             // desplazar a other (player) a la posición target del
             other.transform.position = target.transform.GetChild(0).transform.position;
             Camera.main.GetComponent<MainCamera>().SetBounds(Targetmap);
+
         }
     }
 
