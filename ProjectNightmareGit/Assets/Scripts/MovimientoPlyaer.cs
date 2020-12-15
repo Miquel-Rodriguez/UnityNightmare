@@ -40,8 +40,10 @@ public class MovimientoPlyaer : MonoBehaviour
         //inicializamos las variables con los componentes del objeto
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
+
         life = maxLife;
         Tickets = InitialTtickets;
 
@@ -228,7 +230,6 @@ public class MovimientoPlyaer : MonoBehaviour
         Tickets++;
         print(Tickets);
         ticketsUI.changeTicketsText(Tickets);
-
     }
     
 

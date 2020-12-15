@@ -76,7 +76,7 @@ public class RandomRoom : MonoBehaviour
         int repeats = Random.Range(2, 5);
         for (int i = 0; i < repeats; i++)
         {
-            GameObject instance = Instantiate(toInstantiate, new Vector3(plantilla.position.x + Random.Range(3, 14), plantilla.position.y + Random.Range(3, 6), 0f), Quaternion.identity);
+            GameObject instance = Instantiate(toInstantiate, new Vector3(plantilla.position.x + Random.Range(3, 14), plantilla.position.y + Random.Range(3, 9), 0f), Quaternion.identity);
             instance.transform.SetParent(Room.transform);
         }
     }
