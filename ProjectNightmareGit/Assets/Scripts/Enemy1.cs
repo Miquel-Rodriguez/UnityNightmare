@@ -24,6 +24,8 @@ public class Enemy1 : MonoBehaviour
 
     Animator anim;
     Rigidbody2D rb;
+
+        private InsTicket insTicket;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -110,6 +112,8 @@ public class Enemy1 : MonoBehaviour
         if (--hp <= 0)
         {
             DetectEnemy.PuedeDesbloquear = true;
+            insTicket = GameObject.FindGameObjectWithTag("InTicket").GetComponent<InsTicket>();
+            insTicket.InstanceTickets(0, 4, gameObject);
             Destroy(gameObject);
         }
     }

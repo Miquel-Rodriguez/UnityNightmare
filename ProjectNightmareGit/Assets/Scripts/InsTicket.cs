@@ -18,7 +18,6 @@ public class InsTicket : MonoBehaviour
             float vX = Random.Range(-130, 130);
             float vY = Random.Range(-130, 130);
 
-
             instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(vX, vY));
         }
     }

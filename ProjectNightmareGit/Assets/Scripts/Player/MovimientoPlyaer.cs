@@ -23,7 +23,7 @@ public class MovimientoPlyaer : MonoBehaviour
 
     bool movePrevent;
 
-    float timeForDisableDash = 1f;
+    float timeForDisableDash = 0.1f;
 
     //ataque a distancia
     public GameObject arrowprefab;
@@ -40,10 +40,8 @@ public class MovimientoPlyaer : MonoBehaviour
         //inicializamos las variables con los componentes del objeto
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
-
         life = maxLife;
         Tickets = InitialTtickets;
 
@@ -63,7 +61,15 @@ public class MovimientoPlyaer : MonoBehaviour
 
         LanzarAtaque();
 
-        dash();
+        if (Input.GetKeyDown("e")){
+            if(speed==0){
+                //ponerse escudo para parar daño
+            }else{
+                 StartCoroutine(dash());
+            }
+
+        }
+               
 
         PreventMovement();
     }
@@ -147,24 +153,19 @@ public class MovimientoPlyaer : MonoBehaviour
     }
 
 
-    public void  dash()
+    public IEnumerator dash()
     {
-        //if (Input.GetKeyDown("e"))
-        //{
-
             //Dash Visible (no actua si está quieto)
             //print("key e");
-            //speed *= 4;
-            //yield return new WaitForSeconds(timeForDisableDash);
-            //speed /= 4;
+            speed *= 4;
+            yield return new WaitForSeconds(timeForDisableDash);
+            speed /= 4;
 
             //Dash invisible, se puede ejecutar parado
             //gameObject.transform.Translate(anim.GetFloat("movX"), anim.GetFloat("movY"), 0f);
 
             //Dash invisible, se puede ejecutar parado
             //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*100000*Time.deltaTime, anim.GetFloat("movY")*100000* Time.deltaTime));
-        //}
-
     }
 
 
@@ -217,11 +218,11 @@ public class MovimientoPlyaer : MonoBehaviour
         //Forma2 de mover 
         rb2d.AddForce(mov * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown("e"))
-        {
-            print("key e");
-            rb2d.AddForce(new Vector2(anim.GetFloat("movX") * 100000 * Time.deltaTime, anim.GetFloat("movY") * 100000 * Time.deltaTime));
-        }
+        //if (Input.GetKeyDown("e"))
+        //{
+          //  print("key e");
+        //    rb2d.AddForce(new Vector2(anim.GetFloat("movX") * 100000 * Time.deltaTime, anim.GetFloat("movY") * 100000 * Time.deltaTime));
+      //  }
         
     }
 
@@ -230,6 +231,7 @@ public class MovimientoPlyaer : MonoBehaviour
         Tickets++;
         print(Tickets);
         ticketsUI.changeTicketsText(Tickets);
+
     }
     
 
