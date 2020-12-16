@@ -12,6 +12,7 @@ TagManager:
   - Door
   - InTicket
   - Ticket
+  - DetectEnemy
   layers:
   - Default
   - TransparentFX

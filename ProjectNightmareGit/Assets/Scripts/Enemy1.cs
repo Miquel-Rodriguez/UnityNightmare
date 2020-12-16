@@ -9,6 +9,8 @@ public class Enemy1 : MonoBehaviour
     public float attackRadius;
     public float speed;
 
+    private DetectEnemyOpenDoor DetectEnemy;
+
     public GameObject rockPrefab;
     public float attackSpeed;
     bool attacking;
@@ -31,12 +33,13 @@ public class Enemy1 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hp = maxHp;
 
+        DetectEnemy = FindObjectOfType<DetectEnemyOpenDoor>();
     }
 
 
     void Update()
     {
- 
+   
         if (player != null)
         {
         Vector3 target = initialPosition;
@@ -104,7 +107,11 @@ public class Enemy1 : MonoBehaviour
 
     public void Attacked()
     {
-        if (--hp <= 0) Destroy(gameObject);
+        if (--hp <= 0)
+        {
+            DetectEnemy.PuedeDesbloquear = true;
+            Destroy(gameObject);
+        }
     }
 
 }
