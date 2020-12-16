@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Slash : MonoBehaviour
 {
-    public float waitForDestroy;
-    public float speed;
+
+    [SerializeField]
+    private float waitForDestroy;
+    [SerializeField]
+    private float speed;
     [HideInInspector]
     public Vector2 mov;
 

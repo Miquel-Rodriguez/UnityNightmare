@@ -5,8 +5,9 @@ using UnityEngine.Assertions;
 
 public class MainCamera : MonoBehaviour
 {
-    public Transform target;
-    float tLX, tLY, bRX, bRY;
+    [SerializeField]
+    private Transform target;
+    private float tLX, tLY, bRX, bRY;
     private void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SimpleAttack : MonoBehaviour
 {
-    public string collisionTag;
-    public string SendMassage;
+    [SerializeField]
+    private string collisionTag;
+    [SerializeField]
+    private string SendMassage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == collisionTag) collision.SendMessage(SendMassage);
+        if(collision.CompareTag(collisionTag)) collision.SendMessage(SendMassage);
     }
 }

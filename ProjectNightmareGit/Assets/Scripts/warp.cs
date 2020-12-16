@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class warp : MonoBehaviour
 {
-
-    public GameObject target;
-    public GameObject Targetmap;
+    [SerializeField]
+    private GameObject target;
+    [SerializeField]
+    private GameObject Targetmap;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

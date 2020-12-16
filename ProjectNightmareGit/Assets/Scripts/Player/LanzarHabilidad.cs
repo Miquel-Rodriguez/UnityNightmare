@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class LanzarHabilidad : MonoBehaviour
 {
+    [SerializeField]
+    private float speed;
 
-    public float speed;
-
-
-    // Update is called once per frame
     void Update()
     {
         //Hacer que el objeto se meuva en una dirreción

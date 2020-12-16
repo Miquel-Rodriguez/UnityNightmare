@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
-
-    public float visionRadius;
-    public float attackRadius;
-    public float speed;
+    [SerializeField]
+    private float visionRadius;
+    [SerializeField]
+    private float attackRadius;
+    [SerializeField]
+    private float speed;
 
     private DetectEnemyOpenDoor DetectEnemy;
 
-    public GameObject rockPrefab;
-    public float attackSpeed;
+    [SerializeField]
+    private GameObject rockPrefab;
+    [SerializeField]
+    private float attackSpeed;
     bool attacking;
-
-    public int maxHp = 3;
-    public int hp;
+    [SerializeField]
+    private int maxHp = 3;
+    private int hp;
 
     GameObject player;
 

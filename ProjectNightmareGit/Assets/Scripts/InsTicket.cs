@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InsTicket : MonoBehaviour
 {
-    public GameObject ticket;
+    [SerializeField]
+    private GameObject ticket;
     private Vector3 v;
    
    public void InstanceTickets(int min, int max, GameObject go)

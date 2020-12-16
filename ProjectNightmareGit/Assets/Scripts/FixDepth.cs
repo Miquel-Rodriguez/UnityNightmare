@@ -6,9 +6,9 @@ using UnityEngine;
 //Clase que sirve para ir cambiando el sortinglayer según la posición en y del objeto
 public class FixDepth : MonoBehaviour
 {
-  
-    public bool fixEveryFrame;
-    SpriteRenderer spr;
+    [SerializeField]
+    private bool fixEveryFrame;
+    private SpriteRenderer spr;
     void Start()
     {
         spr = GetComponent<SpriteRenderer>();

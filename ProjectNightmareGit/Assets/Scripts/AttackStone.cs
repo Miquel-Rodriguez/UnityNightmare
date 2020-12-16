@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AttackStone : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private float speed;
 
-    GameObject player;
-    Rigidbody2D rg;
-    Vector3 target, dir;
+    private GameObject player;
+    private Rigidbody2D rg;
+    private Vector3 target, dir;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

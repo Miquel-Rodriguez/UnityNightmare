@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public GameObject objectToDisable;
-
-
+    [SerializeField]
+    private GameObject objectToDisable;
     private void Update()
     {
         print("close");

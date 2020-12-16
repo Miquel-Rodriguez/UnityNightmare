@@ -6,7 +6,7 @@ public class AutoDelete : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag == "Door")
+        if(collision.transform.CompareTag("Door"))
         {
             Destroy(gameObject);
         }

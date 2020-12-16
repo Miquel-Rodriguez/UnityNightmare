@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class SpriteLives : MonoBehaviour
 {
-    public Sprite[] hearts;
+    [SerializeField]
+    private Sprite[] hearts;
     void Start()
     {
         ChangeHearts(11);
     }
-
 
     public void ChangeHearts(int num)
     {

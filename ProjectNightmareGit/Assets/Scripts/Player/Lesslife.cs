@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Lesslife : MonoBehaviour
 {
-    public GameObject target;
-    public int life = 12; 
-    public SpriteLives spriteLives;
+    [SerializeField]
+    private GameObject target;
+    [SerializeField]
+    private int life = 12;
+    [SerializeField]
+    private SpriteLives spriteLives;
 
     public void Awake()
     {

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Destroyable : MonoBehaviour
 {
+    
     private InsTicket insTicket;
-    public string destroyState;
-    public float timeForDisable;
+    [SerializeField]
+    private string destroyState;
+    [SerializeField]
+    private float timeForDisable;
     Animator anim;
     void Start()
     {

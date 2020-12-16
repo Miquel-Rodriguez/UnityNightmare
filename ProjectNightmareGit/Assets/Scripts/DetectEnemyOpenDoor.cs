@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DetectEnemyOpenDoor : MonoBehaviour
 {
-    public GameObject[] portes;
-
-
+    [SerializeField]
+    private GameObject[] portes;
+    string ta;
     private static bool puedeDesbloquear=false;
     public bool PuedeDesbloquear 
     {
@@ -14,16 +14,21 @@ public class DetectEnemyOpenDoor : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)  
     {
-        if (collision.transform.CompareTag("Enemy"))
+        
+        if (collision.transform.CompareTag("Enemy") )
         {
+            print("Tenca");
+            print(collision.transform.tag);
             puedeDesbloquear = false;
             foreach (GameObject porta in portes)
             {
+               
                 porta.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
         if (collision.transform.CompareTag("Player") && puedeDesbloquear)
         {
+            print("Obra");
             foreach (GameObject porta in portes)
             {
                 porta.GetComponent<BoxCollider2D>().enabled = false;

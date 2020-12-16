@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CamaraMoving : MonoBehaviour
 {
-    public GameObject personaje;
+    [SerializeField]
+    private GameObject personaje;
     private Vector3 posicion;
     void Start()
     {
         posicion = transform.position - personaje.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = personaje.transform.position + posicion;

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ColliderSendMassage : MonoBehaviour
 {
-    public string[] taggs;
-    public string[] massages;
+    [SerializeField]
+    private string[] taggs;
+    [SerializeField]
+    private string[] massages;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

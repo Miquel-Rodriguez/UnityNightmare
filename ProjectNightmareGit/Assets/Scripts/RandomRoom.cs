@@ -5,19 +5,24 @@ using UnityEngine;
 
 public class RandomRoom : MonoBehaviour
 {
-
-
-
-    public int columns;
-    public int rows;
-    public GameObject[] floorTiles;
-    public GameObject[] wallTiles;
-    public GameObject[] outTiles;
-    public GameObject Room;
-    public GameObject[] objectsMap;
+    [SerializeField]
+    private int columns;
+    [SerializeField]
+    private int rows;
+    [SerializeField]
+    private GameObject[] floorTiles;
+    [SerializeField]
+    private GameObject[] wallTiles;
+    [SerializeField]
+    private GameObject[] outTiles;
+    [SerializeField]
+    private GameObject Room;
+    [SerializeField]
+    private GameObject[] objectsMap;
     //public string doors;
     //public GameObject doorTile;
-    public Transform plantilla;
+    [SerializeField]
+    private Transform plantilla;
 
     private Transform boardHolder;
     private List<Vector3> gridPositions = new List<Vector3>();

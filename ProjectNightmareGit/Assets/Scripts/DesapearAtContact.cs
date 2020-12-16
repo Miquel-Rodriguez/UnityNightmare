@@ -6,7 +6,7 @@ public class DesapearAtContact : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag=="RockAttack" || collision.tag == "Enemy" || collision.tag == "Wall")
+        if(collision.CompareTag("RockAttack") || collision.CompareTag("Enemy") || collision.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }

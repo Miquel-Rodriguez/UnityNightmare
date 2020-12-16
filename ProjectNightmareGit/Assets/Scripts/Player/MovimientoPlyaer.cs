@@ -4,33 +4,35 @@ using UnityEngine;
 
 public class MovimientoPlyaer : MonoBehaviour
 {
-    TicketsUI ticketsUI;
+    
 
-    public GameObject InitialMap;
+    [SerializeField]
+    private GameObject InitialMap;
+    [SerializeField]
+    private float speed = 4f;
 
-    public float speed = 4f;
     private Animator anim;
-    Rigidbody2D rb2d;
-    Vector2 mov;
+    private Rigidbody2D rb2d;
+    private Vector2 mov;
 
-    CircleCollider2D attackCollider;
+    private CircleCollider2D attackCollider;
 
-    //////////////
-    public GameObject chargedAttackPrefab;
+    
+    [SerializeField]
+    private GameObject chargedAttackPrefab;
 
-    public int maxLife = 100;
-    private int life;
+    private bool movePrevent;
 
-    bool movePrevent;
-
-    float timeForDisableDash = 0.1f;
+    private float timeForDisableDash = 0.1f;
 
     //ataque a distancia
-    public GameObject arrowprefab;
-    float arrowRotation;
+    [SerializeField]
+    private GameObject DistanceAttackprefab;
+    private float DistanceAttackRotation;
     private float nextFireTime;
-    public float cooldawnFlecha=2;
+    private float cooldawnDistanceAttack = 2;
 
+    private TicketsUI ticketsUI;
     private int InitialTtickets = 0;
     private int Tickets;
 
@@ -42,7 +44,6 @@ public class MovimientoPlyaer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
-        life = maxLife;
         Tickets = InitialTtickets;
 
         Camera.main.GetComponent<MainCamera>().SetBounds(InitialMap);
@@ -81,16 +82,16 @@ public class MovimientoPlyaer : MonoBehaviour
         {
             if (Input.GetKeyDown("1"))
             {
-                nextFireTime = Time.time + cooldawnFlecha;
+                nextFireTime = Time.time + cooldawnDistanceAttack;
 
                 //Hacer la variación de grados según la posición de movimiento
-                arrowRotation = Mathf.Atan2(
+                DistanceAttackRotation = Mathf.Atan2(
                 anim.GetFloat("movY"),
                 anim.GetFloat("movX"))
                 * Mathf.Rad2Deg;
 
                 //instanciar el objeto arraowprefab
-                Instantiate(arrowprefab, transform.position, Quaternion.Euler(0, 0, arrowRotation + 90));
+                Instantiate(DistanceAttackprefab, transform.position, Quaternion.Euler(0, 0, DistanceAttackRotation + 90));
             }
         }
     }
