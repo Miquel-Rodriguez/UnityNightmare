@@ -6,14 +6,14 @@ public class Destroyable : MonoBehaviour
 {
     
     private InsTicket insTicket;
-    [SerializeField]
-    private string destroyState;
+    
+    public string destroyState;
     [SerializeField]
     private float timeForDisable;
-    Animator anim;
+    private Animator anim;
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     IEnumerator OnTriggerEnter2D(Collider2D collision)

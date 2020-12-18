@@ -267,10 +267,10 @@ RectTransform:
   m_Father: {fileID: 102410414}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -331, y: 209}
-  m_SizeDelta: {x: 116.09436, y: 16.305557}
+  m_AnchorMin: {x: 0.0175, y: 0.9284515}
+  m_AnchorMax: {x: 0.15875001, y: 0.96179104}
+  m_AnchoredPosition: {x: -1.5, y: 1}
+  m_SizeDelta: {x: 3.0943604, y: 1.3055573}
   m_Pivot: {x: 0.50000006, y: 0.9999997}
 --- !u!114 &516838697
 MonoBehaviour:
@@ -745,10 +745,10 @@ RectTransform:
   m_Father: {fileID: 102410414}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -308, y: -197}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.0175, y: 0.028656773}
+  m_AnchorMax: {x: 0.21375002, y: 0.09076129}
+  m_AnchoredPosition: {x: -0.5, y: 1}
+  m_SizeDelta: {x: 3, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096967280
 MonoBehaviour:
@@ -913,10 +913,10 @@ RectTransform:
   m_Father: {fileID: 102410414}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -314.02982, y: 166}
-  m_SizeDelta: {x: 147.94037, y: 40.663544}
+  m_AnchorMin: {x: 0.0175, y: 0.8196605}
+  m_AnchorMax: {x: 0.2, y: 0.9106605}
+  m_AnchoredPosition: {x: -1.0297852, y: 1.5}
+  m_SizeDelta: {x: 1.9403687, y: -0.3364563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257668106
 MonoBehaviour:
@@ -1373,6 +1373,41 @@ PrefabInstance:
     - target: {fileID: 2061123642, guid: 8087080e241e0ad44af8c43b44916e15, type: 3}
       propertyPath: m_Offset.x
       value: -0.014259815
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728308366310998211, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: collisionTag.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728308366310998211, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: SendMassage.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728308366310998211, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: collisionTag.Array.data[0]
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728308366310998211, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: SendMassage.Array.data[0]
+      value: Attacked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728308366310998211, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: SendMassage.Array.data[1]
+      value: MoveForce
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660831332009768164, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660831332009768164, guid: 8087080e241e0ad44af8c43b44916e15,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7660831332009768166, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}

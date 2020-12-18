@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovimientoPlyaer : MonoBehaviour
 {
-    
+
 
     [SerializeField]
     private GameObject InitialMap;
@@ -17,7 +17,7 @@ public class MovimientoPlyaer : MonoBehaviour
 
     private CircleCollider2D attackCollider;
 
-    
+
     [SerializeField]
     private GameObject chargedAttackPrefab;
 
@@ -36,6 +36,12 @@ public class MovimientoPlyaer : MonoBehaviour
     private int InitialTtickets = 0;
     private int Tickets;
 
+    public Vector2 Mov
+    {
+        get{
+            return mov;
+        }
+    }
 
     void Start()
     {
@@ -59,8 +65,10 @@ public class MovimientoPlyaer : MonoBehaviour
         Attack();
 
         ChargedAttack();
-
-        LanzarAtaque();
+        if (Input.GetKeyDown("k")){
+            LanzarAtaque();
+        }
+        
 
         if (Input.GetKeyDown("e")){
             if(speed==0){
@@ -134,7 +142,7 @@ public class MovimientoPlyaer : MonoBehaviour
         }
 
         //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
-        if (mov != Vector2.zero) attackCollider.offset = new Vector2(mov.x / 5, mov.y / 5);
+        if (mov != Vector2.zero) attackCollider.offset = new Vector2(mov.x/ 5 , mov.y / 5);
 
         if (attacking)
         {

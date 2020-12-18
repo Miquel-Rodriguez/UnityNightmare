@@ -97,7 +97,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 200
-  m_LinearDrag: 100
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -150,7 +150,6 @@ MonoBehaviour:
     type: 3}
   attackSpeed: 2
   maxHp: 3
-  hp: 0
 --- !u!95 &1993412157177471091
 Animator:
   serializedVersion: 3

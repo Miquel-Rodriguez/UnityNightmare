@@ -22,14 +22,16 @@ public class Enemy1 : MonoBehaviour
     private int maxHp = 3;
     private int hp;
 
-    GameObject player;
+    private GameObject player;
 
-    Vector3 initialPosition;
+    private Vector3 initialPosition;
 
-    Animator anim;
-    Rigidbody2D rb;
+    private Animator anim;
+    private Rigidbody2D rb;
 
-        private InsTicket insTicket;
+    private Renderer renderEnemy;
+
+    private InsTicket insTicket;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -40,6 +42,8 @@ public class Enemy1 : MonoBehaviour
         hp = maxHp;
 
         DetectEnemy = FindObjectOfType<DetectEnemyOpenDoor>();
+
+        renderEnemy = GetComponent<Renderer>();
     }
 
 
@@ -61,7 +65,7 @@ public class Enemy1 : MonoBehaviour
         Debug.DrawRay(transform.position, forward, Color.red);
 
       
-                target = player.transform.position;
+        target = player.transform.position;
 
 
         float distance = Vector3.Distance(target, transform.position);
@@ -82,11 +86,7 @@ public class Enemy1 : MonoBehaviour
             anim.SetBool("walking", true);
         }
 
-        if(target == initialPosition && distance < 0.02f)
-        {
-            transform.position = initialPosition;
-            anim.SetBool("walking", false);
-        }
+            
 
         Debug.DrawLine(target, transform.position, Color.green);
         }
@@ -103,7 +103,7 @@ public class Enemy1 : MonoBehaviour
     IEnumerator attack(float seconds)
     {
         attacking = true;
-        if(rockPrefab != null)
+        if (rockPrefab != null)
         {
             Instantiate(rockPrefab, transform.position, transform.rotation);
             yield return new WaitForSeconds(seconds);
@@ -113,6 +113,7 @@ public class Enemy1 : MonoBehaviour
 
     public void Attacked()
     {
+        StartCoroutine(CambiarColor()); 
         if (--hp <= 0)
         {
             DetectEnemy.PuedeDesbloquear = true;
@@ -122,4 +123,18 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
+    public void MoveForce(Vector2 v)
+    {
+        rb.AddForce(v * 100000);
+        print("move");
+       // new Vector3(transform.position.x, transform.position.y)
+    }
+
+    public IEnumerator CambiarColor()
+    {
+        renderEnemy.material.SetColor("_Color", Color.red);
+        print("Cambiando color");
+        yield return new WaitForSeconds(0.1f);
+        renderEnemy.material.SetColor("_Color", Color.white);
+    }
 }
