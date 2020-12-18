@@ -126,7 +126,6 @@ public class Enemy1 : MonoBehaviour
     public void MoveForce(Vector2 v)
     {
         rb.AddForce(v * 100000);
-        print("move");
        // new Vector3(transform.position.x, transform.position.y)
     }
 

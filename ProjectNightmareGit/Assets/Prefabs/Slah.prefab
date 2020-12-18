@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3682908111448686912}
   - component: {fileID: 1588287828892741162}
   - component: {fileID: 6015938315370259688}
-  - component: {fileID: 3069728517372110690}
-  - component: {fileID: 6567849345180623713}
   - component: {fileID: 7845623019336812715}
+  - component: {fileID: 6181008252463463797}
+  - component: {fileID: 7395371521727750299}
   m_Layer: 0
   m_Name: Slah
   m_TagString: Attack
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2996173342790011733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.017, y: 0.115, z: 0}
-  m_LocalScale: {x: 2.5188065, y: 2.6077855, z: 1.095132}
+  m_LocalScale: {x: 2.5188065, y: 2.6077855, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,53 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
---- !u!60 &3069728517372110690
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2996173342790011733}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.12936954, y: 0.09007347}
-      - {x: -0.11308067, y: 0.08080902}
-      - {x: -0.04309068, y: 0.07789445}
-      - {x: 0.054428738, y: 0.07352309}
-      - {x: 0.09924508, y: 0.07266358}
-      - {x: 0.11654231, y: 0.07290008}
-      - {x: 0.13611212, y: 0.07685369}
-      - {x: 0.13697027, y: 0.07958581}
---- !u!114 &6567849345180623713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2996173342790011733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c0283b261275b4ca069d4a71953160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionTag: Enemy
-  SendMassage: Attacked
 --- !u!114 &7845623019336812715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +108,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78ec90274ed1ee419f3832661dd8315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &6181008252463463797
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996173342790011733}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0021403134, y: 0.07752286}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25298482, y: 0.024379581}
+  m_EdgeRadius: 0
+--- !u!114 &7395371521727750299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996173342790011733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6c7d27cb8ccfc779a03e21affae0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionTag:
+  - Enemy
+  SendMassage:
+  - Attacked
+  - MoveForce

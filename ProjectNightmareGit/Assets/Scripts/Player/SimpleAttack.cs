@@ -27,6 +27,6 @@ public class SimpleAttack : MonoBehaviour
             collision.SendMessage(SendMassage[1], v);
 
         }
-        //
+        
     }
 }

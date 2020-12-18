@@ -16,6 +16,7 @@ public class MovimientoPlyaer : MonoBehaviour
     private Vector2 mov;
 
     private CircleCollider2D attackCollider;
+    private CircleCollider2D 
 
 
     [SerializeField]
@@ -64,9 +65,13 @@ public class MovimientoPlyaer : MonoBehaviour
 
         Attack();
 
+
+
         ChargedAttack();
-        if (Input.GetKeyDown("k")){
-            LanzarAtaque();
+
+    
+        if (Input.GetKeyDown("1") && Time.time >= nextFireTime){
+            LanzarHabilidad();
         }
         
 
@@ -83,13 +88,8 @@ public class MovimientoPlyaer : MonoBehaviour
         PreventMovement();
     }
 
-    void LanzarAtaque()
+    void LanzarHabilidad()
     {
-        
-        if (Time.time >= nextFireTime)
-        {
-            if (Input.GetKeyDown("1"))
-            {
                 nextFireTime = Time.time + cooldawnDistanceAttack;
 
                 //Hacer la variación de grados según la posición de movimiento
@@ -100,8 +100,7 @@ public class MovimientoPlyaer : MonoBehaviour
 
                 //instanciar el objeto arraowprefab
                 Instantiate(DistanceAttackprefab, transform.position, Quaternion.Euler(0, 0, DistanceAttackRotation + 90));
-            }
-        }
+        
     }
 
 
@@ -202,12 +201,12 @@ public class MovimientoPlyaer : MonoBehaviour
 
             GameObject slashObj = Instantiate(
                 chargedAttackPrefab, transform.position,
-                     Quaternion.AngleAxis(angle, Vector3.forward));
+                     Quaternion.AngleAxis(angle+90f, Vector3.forward));
 
 
-            Slash slash = slashObj.GetComponent<Slash>();
-            slash.mov.x = anim.GetFloat("movX");
-            slash.mov.y = anim.GetFloat("movY");
+           // Slash slash = slashObj.GetComponent<Slash>();
+            //slash.mov.x = anim.GetFloat("movX");
+            //slash.mov.y = anim.GetFloat("movY");
         }
     }
     void PreventMovement()
