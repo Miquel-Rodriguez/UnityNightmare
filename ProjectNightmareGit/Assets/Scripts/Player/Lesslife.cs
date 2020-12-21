@@ -7,7 +7,7 @@ public class Lesslife : MonoBehaviour
     [SerializeField]
     private GameObject target;
     [SerializeField]
-    private int life = 12;
+    private int life = 13;
     [SerializeField]
     private SpriteLives spriteLives;
 

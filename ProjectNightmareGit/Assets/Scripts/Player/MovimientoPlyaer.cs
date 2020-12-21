@@ -16,11 +16,11 @@ public class MovimientoPlyaer : MonoBehaviour
     private Vector2 mov;
 
     private CircleCollider2D attackCollider;
-    private CircleCollider2D 
+    private CircleCollider2D a;
 
 
     [SerializeField]
-    private GameObject chargedAttackPrefab;
+    private GameObject ChargedAttackPrefab;
 
     private bool movePrevent;
 
@@ -138,6 +138,7 @@ public class MovimientoPlyaer : MonoBehaviour
         if (Input.GetKeyDown("k") && !attacking)
         {
             anim.SetTrigger("attacking");
+
         }
 
         //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
@@ -188,10 +189,12 @@ public class MovimientoPlyaer : MonoBehaviour
         if (Input.GetKeyDown("l"))
         {
             anim.SetTrigger("Loading");
+            movePrevent = true;
         }
         else if (Input.GetKeyUp("l"))
         {
             anim.SetTrigger("attacking");
+            movePrevent = false;
 
             //rotar
             float angle = Mathf.Atan2(
@@ -200,11 +203,11 @@ public class MovimientoPlyaer : MonoBehaviour
                 * Mathf.Rad2Deg;
 
             GameObject slashObj = Instantiate(
-                chargedAttackPrefab, transform.position,
+                ChargedAttackPrefab, transform.position,
                      Quaternion.AngleAxis(angle+90f, Vector3.forward));
 
 
-           // Slash slash = slashObj.GetComponent<Slash>();
+            // Slash slash = slashObj.GetComponent<Slash>();
             //slash.mov.x = anim.GetFloat("movX");
             //slash.mov.y = anim.GetFloat("movY");
         }

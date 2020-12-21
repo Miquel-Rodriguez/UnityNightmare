@@ -9,7 +9,7 @@ public class SpriteLives : MonoBehaviour
     private Sprite[] hearts;
     void Start()
     {
-        ChangeHearts(11);
+        ChangeHearts(12);
     }
 
     public void ChangeHearts(int num)
