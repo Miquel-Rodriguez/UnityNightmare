@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigos:
   - {fileID: 1993412157177471049, guid: 8cb4c5e1e01c2344bb695ca540def714, type: 3}
+  - {fileID: 6763642714945685055, guid: 2981a078de1fbbc4fa3b583d9375ad4d, type: 3}
   maxEenemies: 3
   minEnemies: 2
 --- !u!1 &7558448885210226098

@@ -48,8 +48,30 @@ public class Lesslife : MonoBehaviour
                     StartCoroutine(CambiarTransperencia());
             
             }
+            if (collision.CompareTag("explosion"))
+            {
+                life -= 3;
+                Debug.Log("me ha dado" + life);
+
+                spriteLives.ChangeHearts(life);
+
+                if (life <= 0)
+                {
+                    Debug.Log("he muerto");
+                    Destroy(target);
+                }
+
+                StartCoroutine(CambiarTransperencia());
+            }
+
+
         }
     }
+
+
+
+
+
 
     public IEnumerator CambiarTransperencia()
     {
@@ -57,7 +79,6 @@ public class Lesslife : MonoBehaviour
         int i = 0;
         do
         {
-            
             playerRender.material.color = ColorT;
             yield return new WaitForSeconds(0.1f);
             playerRender.material.color = ColorV;

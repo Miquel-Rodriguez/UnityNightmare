@@ -16,7 +16,7 @@ public class MovimientoPlyaer : MonoBehaviour
     private Vector2 mov;
 
     private CircleCollider2D attackCollider;
-    private CircleCollider2D a;
+    private CircleCollider2D ChargeAttackCollider;
 
 
     [SerializeField]
@@ -37,10 +37,35 @@ public class MovimientoPlyaer : MonoBehaviour
     private int InitialTtickets = 0;
     private int Tickets;
 
+    private bool attacking=false;
+
+    private bool upKeyL = true;
+
+    private int damage;
+    private float tiempo;
+    
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
+    }
+
+    
+    
     public Vector2 Mov
     {
         get{
             return mov;
+        }
+    }
+
+    public float Tiempo
+    {
+        get
+        {
+            return tiempo;
         }
     }
 
@@ -51,6 +76,11 @@ public class MovimientoPlyaer : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         attackCollider = transform.GetChild(0).GetComponent<CircleCollider2D>();
         attackCollider.enabled = false;
+
+        ChargeAttackCollider = transform.GetChild(2).GetComponent<CircleCollider2D>();
+        ChargeAttackCollider.enabled = false;
+
+
         Tickets = InitialTtickets;
 
         Camera.main.GetComponent<MainCamera>().SetBounds(InitialMap);
@@ -64,7 +94,6 @@ public class MovimientoPlyaer : MonoBehaviour
         Animations();
 
         Attack();
-
 
 
         ChargedAttack();
@@ -84,9 +113,37 @@ public class MovimientoPlyaer : MonoBehaviour
 
         }
                
-
         PreventMovement();
+
+
+        if (!upKeyL)
+        {
+
+            
+            TimeChargeAttack();
+        }else tiempo = 0;
+
+
+
+
     }
+
+    public void TimeChargeAttack()
+    {
+      tiempo += Time.deltaTime;
+      print(tiempo);
+      if (tiempo < 1)
+      {
+      //perticulas 1
+      }
+      if(tiempo < 2)
+      {
+      //particulas 2
+     }
+
+    }
+
+
 
     void LanzarHabilidad()
     {
@@ -132,13 +189,13 @@ public class MovimientoPlyaer : MonoBehaviour
     {
         //cojer la información de la animación de ataque
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        bool attacking = stateInfo.IsName("Attack");
+        attacking = stateInfo.IsName("Attack");
 
         //si pulsamos k activamos la animación de atacar
         if (Input.GetKeyDown("k") && !attacking)
         {
             anim.SetTrigger("attacking");
-
+            damage = 1;
         }
 
         //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
@@ -149,6 +206,7 @@ public class MovimientoPlyaer : MonoBehaviour
             //Activar el boxCollider solo cuando la animación esté a mitad del precoso
             //es para hacerlo más relista()
             float playbackTime = stateInfo.normalizedTime;
+
             if (playbackTime > 0.33 && playbackTime < 0.66)
             {
                 attackCollider.enabled = true;
@@ -180,38 +238,56 @@ public class MovimientoPlyaer : MonoBehaviour
 
 
 
-    /// /////////////////////////////////////////////chargedAttack no funciona
     void ChargedAttack()
     {
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        bool loading = stateInfo.IsName("player_charged_attack");
-
+        
         if (Input.GetKeyDown("l"))
         {
             anim.SetTrigger("Loading");
             movePrevent = true;
+            upKeyL = false;
+
         }
         else if (Input.GetKeyUp("l"))
         {
-            anim.SetTrigger("attacking");
+            upKeyL = true;
+            if (tiempo < 1)
+            {
+                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + damage);
+            }
+            else if(tiempo>=1 && tiempo < 2)
+            {
+                damage = 2;
+                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + damage);
+            }
+            else if (tiempo >= 2){
+                damage = 3;
+                print("ha pasado timepo: "+tiempo+" Hace tanto Daño: "+damage);
+            }
+
             movePrevent = false;
+            
+            anim.SetTrigger("ChargeAttack");
+            ChargeAttackCollider.offset = new Vector2(anim.GetFloat("movX") * 1.6f, anim.GetFloat("movY") / 2.5f);
 
-            //rotar
-            float angle = Mathf.Atan2(
-                anim.GetFloat("movY"),
-                anim.GetFloat("movX"))
-                * Mathf.Rad2Deg;
-
-            GameObject slashObj = Instantiate(
-                ChargedAttackPrefab, transform.position,
-                     Quaternion.AngleAxis(angle+90f, Vector3.forward));
-
+            StartCoroutine(Wait(0.1f));
 
             // Slash slash = slashObj.GetComponent<Slash>();
             //slash.mov.x = anim.GetFloat("movX");
             //slash.mov.y = anim.GetFloat("movY");
+
+
         }
     }
+
+    public IEnumerator Wait(float s)
+    {
+        yield return new WaitForSeconds(s);
+        ChargeAttackCollider.enabled = true;
+        yield return new WaitForSeconds(s);
+        ChargeAttackCollider.enabled = false;
+    }
+
     void PreventMovement()
     {
         if (movePrevent)
@@ -219,7 +295,6 @@ public class MovimientoPlyaer : MonoBehaviour
             mov = Vector2.zero;
         }
     }
-    /// /////////////////////////////////////////////
 
 
     void FixedUpdate()

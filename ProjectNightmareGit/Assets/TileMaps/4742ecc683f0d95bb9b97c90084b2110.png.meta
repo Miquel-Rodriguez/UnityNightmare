@@ -4,6 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: 4742ecc683f0d95bb9b97c90084b2110_0
     21300002: Room
+    21300004: 4742ecc683f0d95bb9b97c90084b2110_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -110,6 +111,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 811311adeb311c548bb800a5ea6410f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 4742ecc683f0d95bb9b97c90084b2110_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 89
+        width: 64
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0039d929b0683340b4f0a1b424c32f5
       vertices: []
       indices: 
       edges: []

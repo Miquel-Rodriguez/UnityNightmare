@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4636280394576217651}
   - component: {fileID: 3446408285900316570}
   - component: {fileID: 4636499866287042472}
+  - component: {fileID: 3383652527615570028}
   m_Layer: 0
   m_Name: porta
   m_TagString: Door
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4636280394576217653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9978, y: 5.49726, z: -0.059508756}
-  m_LocalScale: {x: 3.0822146, y: 1.7748435, z: 1.7281594}
+  m_LocalPosition: {x: 1.9978, y: 5.49726, z: -0}
+  m_LocalScale: {x: 3, y: 1.8, z: 1}
   m_Children:
   - {fileID: 1048848088538658761}
   m_Father: {fileID: 0}
@@ -129,6 +130,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!95 &3383652527615570028
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4636280394576217653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cce1ae6af32c76848a3ce88ce6300721, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3116735372076537878
 PrefabInstance:
   m_ObjectHideFlags: 0
