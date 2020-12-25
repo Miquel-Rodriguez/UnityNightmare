@@ -9,13 +9,18 @@ public class BalloonController : MonoBehaviour
     private BalloonEnemy parentScript;
     private bool exploting = false;
     private PolygonCollider2D polyCollider;
+    private DetectEnemyOpenDoor DetectEnemy;
     void Start()
     {
         renderEnemy = GetComponent<Renderer>();
         anim = GetComponent<Animator>();
         parentScript = GetComponentInParent<BalloonEnemy>();
         polyCollider = GetComponent<PolygonCollider2D>();
+     
     }
+
+   
+
 
     public IEnumerator CambiarColor(float tEspera, int vagades)
     {
@@ -23,7 +28,6 @@ public class BalloonController : MonoBehaviour
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            print("Cambiando color");
             yield return new WaitForSeconds(tEspera);
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
@@ -33,7 +37,6 @@ public class BalloonController : MonoBehaviour
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            print("Cambiando color");
             yield return new WaitForSeconds(tEspera / 2);
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
@@ -44,7 +47,6 @@ public class BalloonController : MonoBehaviour
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            print("Cambiando color");
             yield return new WaitForSeconds(tEspera / 4);
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
@@ -59,8 +61,9 @@ public class BalloonController : MonoBehaviour
         StartCoroutine(parentScript.EnableCircleCollider());
         anim.SetBool("explosion", true);
         yield return new WaitForSeconds(0.8f);
+
         parentScript.DestroyObject();
-        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -6,63 +6,75 @@ public class DetectEnemyOpenDoor : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] portes;
-    string ta;
-    private static bool puedeDesbloquear=false;
 
     private Animator animaciones;
 
 
+    public float numEnemies = 0;
+    public float numBaloons = 0;
 
-    private int numEnemies;
-    public int NumEnemies
+    public float NumEnemies { set { numEnemies = value; } get { return numEnemies;} }
+    public float NumBaloons { set { numBaloons = value; } get { return numBaloons; } }
+
+    public void ComprobarEnemigos()
     {
-        set { NumEnemies = value; }
+        if (NumBaloons <= 0 && NumEnemies==0)
+        {
+            foreach (Transform child in gameObject.GetComponent<Transform>())
+            {
+                if (child.CompareTag("Door"))
+                {
+                print("abriendo");
+                child.GetComponent<BoxCollider2D>().enabled = false;
+                animaciones = child.GetComponent<Animator>();
+                animaciones.SetBool("open", true);
+                }
+            }
+        }
     }
 
 
 
-    public bool PuedeDesbloquear 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        set { puedeDesbloquear = value; }
+        if (collision.CompareTag("Enemy"))
+        {
+            NumEnemies++;
+            print(NumEnemies);
+            ComprobarEnemigos();
+        }   
     }
-    private void OnTriggerStay2D(Collider2D collision)  
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.CompareTag("explosion"))
+        {
+            NumBaloons--;
+            ComprobarEnemigos();
+        }
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Mirar());
+    }
+
+    public IEnumerator Mirar()
+    {
+        while (true)
+        {
+            print(NumEnemies + "   tirdaores");
+            print(NumBaloons + "baloons");
+           
+            
+            yield return new WaitForSeconds(1);
+            
+        }
         
-        if (collision.transform.CompareTag("Enemy") )
-        {
-            print("Tenca");
-            print(collision.transform.tag);
-            puedeDesbloquear = false;
-            foreach (GameObject porta in portes)
-            {
-               
-                porta.GetComponent<BoxCollider2D>().enabled = true;
-                animaciones = porta.GetComponent<Animator>();
-                animaciones.SetBool("open", false);
-            }
-        }
-
-        if (collision.transform.CompareTag("Player") && puedeDesbloquear)
-        {
-            print("Obra");
-            foreach (GameObject porta in portes)
-            {
-                porta.GetComponent<BoxCollider2D>().enabled = false;
-                animaciones = porta.GetComponent<Animator>();
-                animaciones.SetBool("open",true);
-            }
-        }
-
-        if (!puedeDesbloquear)
-        {
-            foreach (GameObject porta in portes)
-            {
-
-                porta.GetComponent<BoxCollider2D>().enabled = true;
-                animaciones = porta.GetComponent<Animator>();
-                animaciones.SetBool("open", false);
-            }
-        }
     }
+
+
+
+
 
 }

@@ -43,11 +43,16 @@ public class Enemy1 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hp = maxHp;
 
-        DetectEnemy = FindObjectOfType<DetectEnemyOpenDoor>();
+    
 
         renderEnemy = GetComponent<Renderer>();
 
         playerScript = FindObjectOfType<MovimientoPlyaer>();
+    }
+
+    public void AddParent()
+    {
+      
     }
 
 
@@ -121,11 +126,19 @@ public class Enemy1 : MonoBehaviour
         StartCoroutine(CambiarColor()); 
         if ((hp-=d) <= 0)
         {
-            DetectEnemy.PuedeDesbloquear = true;
-            insTicket = GameObject.FindGameObjectWithTag("InTicket").GetComponent<InsTicket>();
-            insTicket.InstanceTickets(0, 4, gameObject);
-            Destroy(gameObject);
+            StartCoroutine(Morir());
+           
+
         }
+    }
+
+    public IEnumerator Morir()
+    {
+        GetComponent<CircleCollider2D>().enabled = true;
+        insTicket = GameObject.FindGameObjectWithTag("InTicket").GetComponent<InsTicket>();
+        insTicket.InstanceTickets(0, 4, gameObject);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(gameObject);
     }
 
     public void MoveForce(Vector2 v)
@@ -137,7 +150,6 @@ public class Enemy1 : MonoBehaviour
     public IEnumerator CambiarColor()
     {
         renderEnemy.material.SetColor("_Color", Color.red);
-        print("Cambiando color");
         yield return new WaitForSeconds(0.1f);
         renderEnemy.material.SetColor("_Color", Color.white);
     }

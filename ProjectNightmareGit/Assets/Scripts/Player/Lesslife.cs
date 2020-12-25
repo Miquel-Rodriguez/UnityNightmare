@@ -36,7 +36,6 @@ public class Lesslife : MonoBehaviour
             if(collision.CompareTag("RockAttack"))
             {
                 life -= 1;
-                Debug.Log("me ha dado"+life);
 
                 spriteLives.ChangeHearts(life);
                 

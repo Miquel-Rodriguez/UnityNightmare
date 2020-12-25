@@ -148,4 +148,9 @@ public class BalloonEnemy : MonoBehaviour
     {
 
     }
+
+    public void AddParent()
+    {
+        DetectEnemy = GetComponent<DetectEnemyOpenDoor>();
+    }
 }

@@ -10,7 +10,6 @@ public class HideAtPlay : MonoBehaviour
                        child2.GetComponent<SpriteRenderer>().enabled = false;
              }
             child.GetComponent<SpriteRenderer>().enabled = false;
-            print("desactivado");
         }
     } 
 }

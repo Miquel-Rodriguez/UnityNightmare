@@ -315,7 +315,6 @@ public class MovimientoPlyaer : MonoBehaviour
     public void PlusTicket()
     {
         Tickets++;
-        print(Tickets);
         ticketsUI.changeTicketsText(Tickets);
 
     }
