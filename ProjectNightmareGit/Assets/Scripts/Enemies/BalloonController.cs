@@ -57,9 +57,9 @@ public class BalloonController : MonoBehaviour
 
     public IEnumerator Attack()
     {
-        renderEnemy.material.SetColor("_Color", Color.white);
         StartCoroutine(parentScript.EnableCircleCollider());
         anim.SetBool("explosion", true);
+
         yield return new WaitForSeconds(0.8f);
 
         parentScript.DestroyObject();
