@@ -39,11 +39,7 @@ public class GeneracionEnemigos : MonoBehaviour
                 
                 print(d.NumEnemies);
             }
-            else if (myEnemy.transform.CompareTag("explosion"))
-            {
-                d.NumBaloons++;
-                print(d.NumBaloons);
-            }
+           
             
            
         }

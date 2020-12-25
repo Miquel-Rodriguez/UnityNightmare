@@ -42,7 +42,11 @@ public class DetectEnemyOpenDoor : MonoBehaviour
             NumEnemies++;
             print(NumEnemies);
             ComprobarEnemigos();
-        }   
+        }else if (collision.CompareTag("explosion"))
+        {
+            NumBaloons++;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -50,7 +54,7 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         if (collision.CompareTag("explosion"))
         {
             NumBaloons--;
-            ComprobarEnemigos();
+             ComprobarEnemigos();
         }
     }
 
