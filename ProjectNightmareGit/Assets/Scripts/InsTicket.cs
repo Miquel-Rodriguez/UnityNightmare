@@ -6,20 +6,83 @@ public class InsTicket : MonoBehaviour
 {
     [SerializeField]
     private GameObject ticket;
+
+    [SerializeField]
+    private GameObject [] hearts;
+
     private Vector3 v;
-   
-   public void InstanceTickets(int min, int max, GameObject go)
+
+    private Lesslife player;
+
+
+    private void Awake()
     {
-        int num = Random.Range(min, max);
-        v=go.transform.position;
-        for (int i = 0; i < num; i++)
+        player = FindObjectOfType<Lesslife>();
+    }
+    public void InstanceItems(GameObject go)
+    {
+        v = go.transform.position;
+        InstanceHearts();
+        InstanceTickets();
+        
+
+       
+    }
+
+    public void InstanceTickets()
+    {
+        for (int i = 0; i < player.Life; i++) {
+            int num = Random.Range(0,1+1);
+            for (int j = 0; j < num; j++)
+            {
+                GameObject instance = Instantiate(ticket, new Vector3(v.x, v.y, 0f), Quaternion.identity);
+                instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
+            }
+        }
+
+        
+    }
+    /*
+    public void NumHearts()
+    {
+        if (Random.Range(0, 1 + 1) == 1)
         {
-            GameObject instance = Instantiate(ticket, new Vector3(v.x, v.y, 0f), Quaternion.identity);
-
-            float vX = Random.Range(-140, 140);
-            float vY = Random.Range(-140, 140);
-
-            instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(vX, vY));
+            if (player.Life >= 10)
+            {
+                InstanceHearts(1);
+            }
+            else if (player.Life >= 7)
+            {
+                InstanceHearts(2);
+            }
+            else if (player.Life >= 4)
+            {
+                InstanceHearts(3);
+            }
+            else
+            {
+                InstanceHearts(4);
+            }
         }
     }
+    */
+    public void InstanceHearts()
+    {
+        for(int i = 11; i > player.Life; i--)
+        {
+            if (Random.Range(0, 3 + 1) == 1){ 
+            GameObject instance = Instantiate(hearts[Random.Range(0, 1 + 1)], new Vector3(v.x, v.y, 0f), Quaternion.identity);
+            instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
+            }
+        }
+    }
+
+
+
+
+    public float RandomF()
+    {
+        return Random.Range(-140, 140);
+    }
+
 }

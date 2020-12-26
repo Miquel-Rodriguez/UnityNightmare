@@ -19,6 +19,13 @@ public class Lesslife : MonoBehaviour
 
     private bool golpeable=true;
 
+    public int Life
+    {
+        get { return life; }
+    }
+
+
+
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -57,7 +64,7 @@ public class Lesslife : MonoBehaviour
 
         if (collision.CompareTag("mediumHeart"))
         {
-            if (life < 11)
+            if (life <= 11)
             {
                 life += 1;
                 ChangeSpritesLife();

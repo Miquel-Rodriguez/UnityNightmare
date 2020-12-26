@@ -11,6 +11,8 @@ public class Destroyable : MonoBehaviour
     [SerializeField]
     private float timeForDisable;
     private Animator anim;
+
+    bool ins = true;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -21,9 +23,14 @@ public class Destroyable : MonoBehaviour
         //si colisiona con un objeto con el tag Attack 
         if(collision.tag == "Attack")
         {
+            while (ins)
+            {
             //Instanicar tickets
-            insTicket = GameObject.FindGameObjectWithTag("InTicket").GetComponent<InsTicket>();
-            insTicket.InstanceTickets(1, 2, gameObject);
+                insTicket = FindObjectOfType<InsTicket>();
+                insTicket.InstanceItems(gameObject);
+                ins = false;
+            }
+            
 
             print("destroy");
             //activa animación de destruir

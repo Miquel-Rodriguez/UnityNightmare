@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1993412157177471091}
   - component: {fileID: 1074462562}
   - component: {fileID: 58678698028973632}
+  - component: {fileID: 114394917681175420}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -199,3 +200,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.115
+--- !u!114 &114394917681175420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993412157177471049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4978609dd541bbb4e81b9157a7ce3507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ticket: {fileID: 2034376095649186782, guid: cf14497ae6e3c284abfcee01a556458c, type: 3}
+  hearts:
+  - {fileID: 2950268670692121373, guid: 9940c1efb6053ef49b75864906e857ac, type: 3}
+  - {fileID: 3176262588550260863, guid: 9feaca91f0084ce4bbeb124bf185cb82, type: 3}
+  - {fileID: 3176262588550260863, guid: 9feaca91f0084ce4bbeb124bf185cb82, type: 3}
+  - {fileID: 3176262588550260863, guid: 9feaca91f0084ce4bbeb124bf185cb82, type: 3}

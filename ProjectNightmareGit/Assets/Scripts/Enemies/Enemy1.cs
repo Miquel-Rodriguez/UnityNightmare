@@ -135,8 +135,8 @@ public class Enemy1 : MonoBehaviour
     public IEnumerator Morir()
     {
         GetComponent<CircleCollider2D>().enabled = true;
-        insTicket = GameObject.FindGameObjectWithTag("InTicket").GetComponent<InsTicket>();
-        insTicket.InstanceTickets(0, 4, gameObject);
+        insTicket = FindObjectOfType<InsTicket>();
+        insTicket.InstanceItems(gameObject);
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }

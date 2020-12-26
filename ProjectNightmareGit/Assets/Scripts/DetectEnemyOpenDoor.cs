@@ -43,8 +43,6 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             NumEnemies++;
-            Debug.Log(collision.tag);
-            print(collision.tag);
             ComprobarEnemigos();
 
 
@@ -58,15 +56,12 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         if (collision.CompareTag("explosion"))
         {
             NumBaloons--;
-            ComprobarEnemigos();
-            Mirar();
-            print("exit");
+            ComprobarEnemigos();    
         }
     }
 
     private void Start()
     {
-        Mirar();
     }
 
     public void Mirar()
