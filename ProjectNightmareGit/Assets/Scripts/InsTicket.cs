@@ -16,8 +16,8 @@ public class InsTicket : MonoBehaviour
         {
             GameObject instance = Instantiate(ticket, new Vector3(v.x, v.y, 0f), Quaternion.identity);
 
-            float vX = Random.Range(-130, 130);
-            float vY = Random.Range(-130, 130);
+            float vX = Random.Range(-140, 140);
+            float vY = Random.Range(-140, 140);
 
             instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(vX, vY));
         }

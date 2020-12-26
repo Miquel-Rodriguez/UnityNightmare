@@ -7,7 +7,7 @@ public class Lesslife : MonoBehaviour
     [SerializeField]
     private GameObject target;
     [SerializeField]
-    private int life = 13;
+    private int life;
     [SerializeField]
     private SpriteLives spriteLives;
 
@@ -23,7 +23,6 @@ public class Lesslife : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerRender = player.GetComponent<Renderer>();
-    
 
         spriteLives = GameObject.FindObjectOfType<SpriteLives>();
 
@@ -35,39 +34,56 @@ public class Lesslife : MonoBehaviour
         if(golpeable){
             if(collision.CompareTag("RockAttack"))
             {
-                life -= 1;
-
-                spriteLives.ChangeHearts(life);
-                
-                if (life <= 0){
-                    Debug.Log("he muerto");
-                    Destroy(target);    
-                }
-
-                    StartCoroutine(CambiarTransperencia());
+                TakeDamage(1);
+                StartCoroutine(CambiarTransperencia());
             
-            }
-            if (collision.CompareTag("explosion"))
+            }else if (collision.CompareTag("explosion"))
             {
-                life -= 3;
-                Debug.Log("me ha dado" + life);
-
-                spriteLives.ChangeHearts(life);
-
-                if (life <= 0)
-                {
-                    Debug.Log("he muerto");
-                    Destroy(target);
-                }
-
+                TakeDamage(3);
                 StartCoroutine(CambiarTransperencia());
             }
+        }
 
+        if (collision.CompareTag("heart"))
+        {
+            if (life < 11)
+            {
+                life+=2;
+                ChangeSpritesLife();
+                collision.GetComponent<HeartScript>().Desapear();
+                
+            }
+        }
 
+        if (collision.CompareTag("mediumHeart"))
+        {
+            if (life < 11)
+            {
+                life += 1;
+                ChangeSpritesLife();
+                collision.GetComponent<HeartScript>().Desapear();
+            }
         }
     }
 
 
+    public void TakeDamage(int damage)
+    {
+        life -= damage;
+
+        ChangeSpritesLife();
+
+        if (life <= 0)
+        {
+            Debug.Log("he muerto");
+            Destroy(target);
+        }
+    }
+
+    public void ChangeSpritesLife()
+    {
+        spriteLives.ChangeHearts(life);
+    }
 
 
 

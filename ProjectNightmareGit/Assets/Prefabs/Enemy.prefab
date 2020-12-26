@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1993412157177471094}
   - component: {fileID: 1993412157177471091}
   - component: {fileID: 1074462562}
-  - component: {fileID: 8671512957998849356}
+  - component: {fileID: 58678698028973632}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixEveryFrame: 1
---- !u!58 &8671512957998849356
+--- !u!58 &58678698028973632
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

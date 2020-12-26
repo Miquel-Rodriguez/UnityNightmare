@@ -18,10 +18,11 @@ public class GeneracionEnemigos : MonoBehaviour
     private DetectEnemyOpenDoor d;
     private void Start()
     {
-
+        
         int repeats = Random.Range(minEnemies, maxEenemies);
         transformP = transform.GetComponentInParent<Transform>();
         d = GetComponent<DetectEnemyOpenDoor>();
+        d.NumEnemies = 0;
         for (int i = 0; i < repeats; i++)
         {
             // GameObject toInstantiate = enemigos[Random.Range(0, enemigos.Length)] as GameObject;
@@ -32,16 +33,20 @@ public class GeneracionEnemigos : MonoBehaviour
             myEnemy = Instantiate(myEnemy , new  Vector3(transformP.position.x + Random.Range(3, 13), transformP.position.y + Random.Range(3, 7), 0f), Quaternion.identity) as GameObject;
             myEnemy.transform.parent = transform;
 
-
+            
             if (myEnemy.transform.CompareTag("Enemy"))
             {
-                 d.NumEnemies-=2;
+                 d.Variable +=1;
                 
-                print(d.NumEnemies);
             }
-           
-            
-           
+            if (myEnemy.transform.CompareTag("explosion"))
+            {
+                d.NumBaloons += 1;
+
+            }
+
+
+
         }
 
        

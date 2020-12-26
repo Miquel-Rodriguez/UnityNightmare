@@ -10,15 +10,18 @@ public class DetectEnemyOpenDoor : MonoBehaviour
     private Animator animaciones;
 
 
-    public float numEnemies = 0;
-    public float numBaloons = 0;
+    private float numEnemies=0;
+    private float numBaloons=0;
+
+    private float variable;
 
     public float NumEnemies { set { numEnemies = value; } get { return numEnemies;} }
     public float NumBaloons { set { numBaloons = value; } get { return numBaloons; } }
 
+    public float Variable { set { variable = value; } get { return variable; } }
     public void ComprobarEnemigos()
     {
-        if (NumBaloons <= 0 && NumEnemies==0)
+        if (NumBaloons == 0 && NumEnemies==variable*2)
         {
             foreach (Transform child in gameObject.GetComponent<Transform>())
             {
@@ -40,12 +43,13 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             NumEnemies++;
-            print(NumEnemies);
+            Debug.Log(collision.tag);
+            print(collision.tag);
             ComprobarEnemigos();
-        }else if (collision.CompareTag("explosion"))
-        {
-            NumBaloons++;
+
+
         }
+       
 
     }
 
@@ -54,26 +58,20 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         if (collision.CompareTag("explosion"))
         {
             NumBaloons--;
-             ComprobarEnemigos();
+            ComprobarEnemigos();
+            Mirar();
+            print("exit");
         }
     }
 
     private void Start()
     {
-        StartCoroutine(Mirar());
+        Mirar();
     }
 
-    public IEnumerator Mirar()
+    public void Mirar()
     {
-        while (true)
-        {
-            print(NumEnemies + "   tirdaores");
-            print(NumBaloons + "baloons");
-           
-            
-            yield return new WaitForSeconds(1);
-            
-        }
+        print(NumBaloons + "      baloons");
         
     }
 
