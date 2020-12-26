@@ -16,6 +16,7 @@ TagManager:
   - explosion
   - heart
   - mediumHeart
+  - DoorKey
   layers:
   - Default
   - TransparentFX

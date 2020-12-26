@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 516838697}
   - component: {fileID: 516838699}
   m_Layer: 5
-  m_Name: Image
+  m_Name: hearts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1397,6 +1397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1068088713, guid: 8087080e241e0ad44af8c43b44916e15, type: 3}
+      propertyPath: life
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1068088714, guid: 8087080e241e0ad44af8c43b44916e15, type: 3}
       propertyPath: m_Offset.y
       value: -0.12663674
@@ -1423,12 +1427,12 @@ PrefabInstance:
     - target: {fileID: 7660831332009768167, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.75
+      value: 4.29
       objectReference: {fileID: 0}
     - target: {fileID: 7660831332009768167, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.65
+      value: -17.38
       objectReference: {fileID: 0}
     - target: {fileID: 7660831332009768167, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
