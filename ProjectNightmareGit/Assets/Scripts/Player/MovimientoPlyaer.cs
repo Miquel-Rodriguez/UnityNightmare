@@ -43,7 +43,19 @@ public class MovimientoPlyaer : MonoBehaviour
 
     private int damage;
     private float tiempo;
-    
+
+    private bool[] keys;
+    public void putKey(int pos)
+    {
+        keys[pos] = true;
+    }
+
+    public bool takeKey(int pos)
+    {
+        return keys[pos];
+    }
+
+
     public int Damage
     {
         get
@@ -52,25 +64,9 @@ public class MovimientoPlyaer : MonoBehaviour
         }
     }
 
-    
-    
-    public Vector2 Mov
-    {
-        get{
-            return mov;
-        }
-    }
-
-    public float Tiempo
-    {
-        get
-        {
-            return tiempo;
-        }
-    }
-
     void Start()
     {
+       
         //inicializamos las variables con los componentes del objeto
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
@@ -80,11 +76,12 @@ public class MovimientoPlyaer : MonoBehaviour
         ChargeAttackCollider = transform.GetChild(2).GetComponent<CircleCollider2D>();
         ChargeAttackCollider.enabled = false;
 
-
         Tickets = InitialTtickets;
 
         Camera.main.GetComponent<MainCamera>().SetBounds(InitialMap);
         ticketsUI = GameObject.FindObjectOfType<TicketsUI>();
+
+        keys = new bool[3];
     }
 
     void Update()

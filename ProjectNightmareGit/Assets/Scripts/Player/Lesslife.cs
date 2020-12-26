@@ -39,7 +39,8 @@ public class Lesslife : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         
         if(golpeable){
-            if(collision.CompareTag("RockAttack"))
+            golpeable = false;
+            if (collision.CompareTag("RockAttack"))
             {
                 TakeDamage(1);
                 StartCoroutine(CambiarTransperencia());
@@ -76,6 +77,7 @@ public class Lesslife : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+       
         life -= damage;
 
         ChangeSpritesLife();
@@ -97,7 +99,6 @@ public class Lesslife : MonoBehaviour
 
     public IEnumerator CambiarTransperencia()
     {
-        golpeable = false;
         int i = 0;
         do
         {

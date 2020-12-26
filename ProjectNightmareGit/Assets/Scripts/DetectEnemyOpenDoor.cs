@@ -32,6 +32,11 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 animaciones = child.GetComponent<Animator>();
                 animaciones.SetBool("open", true);
                 }
+                if (child.CompareTag("DoorKey"))
+                {
+                    print("semi abriendo");
+                    child.GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
         }
     }
@@ -66,7 +71,7 @@ public class DetectEnemyOpenDoor : MonoBehaviour
 
     public void Mirar()
     {
-        print(NumBaloons + "      baloons");
+        print(NumBaloons + "baloons");
         
     }
 
