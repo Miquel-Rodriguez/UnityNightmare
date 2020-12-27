@@ -27,6 +27,7 @@ public class RandomRoom : MonoBehaviour
     private Transform boardHolder;
     private List<Vector3> gridPositions = new List<Vector3>();
 
+    /*
     void InitialiseList()
     {
         gridPositions.Clear();
@@ -40,7 +41,7 @@ public class RandomRoom : MonoBehaviour
         }
 
     }
-
+    */
     void BoardSetup()
     {
         boardHolder = new GameObject("Board").transform;
@@ -89,7 +90,7 @@ public class RandomRoom : MonoBehaviour
     void Start()
     {
         BoardSetup();
-        InitialiseList();
+       // InitialiseList();
     }
 
     // Update is called once per frame

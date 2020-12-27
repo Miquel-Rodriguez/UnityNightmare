@@ -85,7 +85,11 @@ public class Enemy1 : MonoBehaviour
             anim.SetFloat("movX", dir.x);
             anim.SetFloat("movY", dir.y);
             anim.Play("Enemy_walk", -1, 0);
-            if (!attacking) StartCoroutine(attack(attackSpeed));
+                if (!attacking)
+                {                 
+                    StartCoroutine(attack(attackSpeed));
+                }
+                
         }
         if(distance<visionRadius && distance > attackRadius)
         {

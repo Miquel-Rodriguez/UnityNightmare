@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6901405798472835761}
   - component: {fileID: 3879585167933238073}
   m_Layer: 0
-  m_Name: StoneOneDirection
+  m_Name: StoneSearchP
   m_TagString: RockAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
