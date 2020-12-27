@@ -140,6 +140,12 @@ public class BalloonEnemy : MonoBehaviour
     public void DestroyObject()
     {
         Destroy(gameObject);
+        
+    }
+
+    public void DestroyChild()
+    {
+        transform.GetChild(1).GetComponent<Destroy>().DestroyGameObject();
     }
 
  

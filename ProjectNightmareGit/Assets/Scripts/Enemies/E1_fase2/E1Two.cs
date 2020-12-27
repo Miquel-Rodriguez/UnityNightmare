@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : MonoBehaviour
+public class E1Two : MonoBehaviour
 {
     [SerializeField]
     private float visionRadius;
@@ -10,8 +10,6 @@ public class Enemy1 : MonoBehaviour
     private float attackRadius;
     [SerializeField]
     private float speed;
-
-    private DetectEnemyOpenDoor DetectEnemy;
 
     [SerializeField]
     private GameObject rockPrefab;
@@ -34,72 +32,67 @@ public class Enemy1 : MonoBehaviour
     private InsTicket insTicket;
 
     private MovimientoPlyaer playerScript;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-       
+
         initialPosition = transform.position;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         hp = maxHp;
 
-    
-
         renderEnemy = GetComponent<Renderer>();
 
         playerScript = FindObjectOfType<MovimientoPlyaer>();
-    }
 
-    public void AddParent()
-    {
-      
     }
 
 
     void Update()
     {
-   
+
         if (player != null)
         {
-        Vector3 target = initialPosition;
+            Vector3 target = initialPosition;
 
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
-            player.transform.position - transform.position,
-            visionRadius,
-            //ejecutar el raycast en la capa default
-            1 << LayerMask.NameToLayer("Default"));
+            RaycastHit2D hit = Physics2D.Raycast(
+                transform.position,
+                player.transform.position - transform.position,
+                visionRadius,
+                //ejecutar el raycast en la capa default
+                1 << LayerMask.NameToLayer("Default"));
 
-        Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-        Debug.DrawRay(transform.position, forward, Color.red);
-
-      
-        target = player.transform.position;
+            Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
+            Debug.DrawRay(transform.position, forward, Color.red);
 
 
-        float distance = Vector3.Distance(target, transform.position);
-        Vector3 dir = (target - transform.position).normalized;
-        if(distance < attackRadius)
-        {
-            anim.speed=1;
-            anim.SetFloat("movX", dir.x);
-            anim.SetFloat("movY", dir.y);
-            anim.Play("Enemy_walk", -1, 0);
-            if (!attacking) StartCoroutine(attack(attackSpeed));
+            target = player.transform.position;
+
+
+            float distance = Vector3.Distance(target, transform.position);
+            Vector3 dir = (target - transform.position).normalized;
+            if (distance < attackRadius)
+            {
+                anim.speed = 1;
+                anim.SetFloat("movX", dir.x);
+                anim.SetFloat("movY", dir.y);
+                anim.Play("Enemy_walk", -1, 0);
+                if (!attacking) StartCoroutine(attack(attackSpeed));
+            }
+            if (distance < visionRadius && distance > attackRadius)
+            {
+                rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
+                anim.SetFloat("movX", dir.x);
+                anim.SetFloat("movY", dir.y);
+                anim.SetBool("walking", true);
+            }
+
+
+
+            Debug.DrawLine(target, transform.position, Color.green);
         }
-        if(distance<visionRadius && distance > attackRadius)
-        {
-            rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
-            anim.SetFloat("movX", dir.x);
-            anim.SetFloat("movY", dir.y);
-            anim.SetBool("walking", true);
-        }
 
-            
-
-        Debug.DrawLine(target, transform.position, Color.green);
-        }
-        
     }
 
     private void OnDrawGizmosSelected()
@@ -114,7 +107,10 @@ public class Enemy1 : MonoBehaviour
         attacking = true;
         if (rockPrefab != null)
         {
+            renderEnemy.material.SetColor("_Color", Color.magenta);
+            yield return new WaitForSeconds(0.2f);           
             Instantiate(rockPrefab, transform.position, transform.rotation);
+            renderEnemy.material.SetColor("_Color", Color.white);
             yield return new WaitForSeconds(seconds);
         }
         attacking = false;
@@ -123,11 +119,11 @@ public class Enemy1 : MonoBehaviour
     public void Attacked()
     {
         int d = playerScript.Damage;
-        StartCoroutine(CambiarColor()); 
-        if ((hp-=d) <= 0)
+        StartCoroutine(CambiarColor());
+        if ((hp -= d) <= 0)
         {
             StartCoroutine(Morir());
-           
+
 
         }
     }
@@ -144,7 +140,7 @@ public class Enemy1 : MonoBehaviour
     public void MoveForce(Vector2 v)
     {
         rb.AddForce(v * 100000);
-       // new Vector3(transform.position.x, transform.position.y)
+        // new Vector3(transform.position.x, transform.position.y)
     }
 
     public IEnumerator CambiarColor()

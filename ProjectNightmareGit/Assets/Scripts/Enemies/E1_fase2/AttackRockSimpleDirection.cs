@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackStone : MonoBehaviour
+public class AttackRockSimpleDirection : MonoBehaviour
 {
     [SerializeField]
     private float speed;
@@ -10,6 +10,10 @@ public class AttackStone : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rg;
     private Vector3 target, dir;
+    private bool positive = true;
+
+    public bool Positive { get { return positive; } set { positive = value; } }
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -20,14 +24,25 @@ public class AttackStone : MonoBehaviour
             dir = (target - transform.position).normalized;
     
         }
+        StartCoroutine(SearchObjective());
     }
+
+    public IEnumerator SearchObjective()
+    {
+        while (true)
+        {
+            target = player.transform.position; 
+            dir = (target - transform.position).normalized;
+        yield return new WaitForSeconds(1);
+        }
+       
+    }
+
 
     private void FixedUpdate()
     {
-        if (target != Vector3.zero)
-        {
-            rg.MovePosition(transform.position + (dir * speed) * Time.deltaTime);
-        }
+        
+            rg.MovePosition(transform.position + (dir * Random.Range(1, speed + 1)) * Time.deltaTime);              
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,4 +56,5 @@ public class AttackStone : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }

@@ -57,13 +57,16 @@ public class BalloonController : MonoBehaviour
 
     public IEnumerator Attack()
     {
+       
         StartCoroutine(parentScript.EnableCircleCollider());
         anim.SetBool("explosion", true);
 
+        parentScript.DestroyChild();
         yield return new WaitForSeconds(0.8f);
-
         parentScript.DestroyObject();
     }
+
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -74,8 +77,6 @@ public class BalloonController : MonoBehaviour
             StartCoroutine(Attack()) ;
 
         }
-
-
     }
 
 }

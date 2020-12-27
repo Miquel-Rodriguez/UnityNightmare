@@ -19,7 +19,7 @@ public class GeneracionEnemigos : MonoBehaviour
     private void Start()
     {
         
-        int repeats = Random.Range(minEnemies, maxEenemies);
+        int repeats = Random.Range(minEnemies, maxEenemies+1);
         transformP = transform.GetComponentInParent<Transform>();
         d = GetComponent<DetectEnemyOpenDoor>();
         d.NumEnemies = 0;

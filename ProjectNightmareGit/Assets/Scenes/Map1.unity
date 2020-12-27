@@ -1427,12 +1427,12 @@ PrefabInstance:
     - target: {fileID: 7660831332009768167, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.29
+      value: 3.79
       objectReference: {fileID: 0}
     - target: {fileID: 7660831332009768167, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.38
+      value: -16.74
       objectReference: {fileID: 0}
     - target: {fileID: 7660831332009768167, guid: 8087080e241e0ad44af8c43b44916e15,
         type: 3}
@@ -1561,6 +1561,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteRoom (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6838598591628151585, guid: c37e853d628d2e1489520401d91eed11,
+        type: 3}
+      propertyPath: enemigos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838598591628151585, guid: c37e853d628d2e1489520401d91eed11,
+        type: 3}
+      propertyPath: enemigos.Array.data[2]
+      value: 
+      objectReference: {fileID: 2217306328920549385, guid: 954221dc957c21146a3cc16e32e6ef1d,
+        type: 3}
     - target: {fileID: 6838598592529433988, guid: c37e853d628d2e1489520401d91eed11,
         type: 3}
       propertyPath: m_LocalPosition.x
