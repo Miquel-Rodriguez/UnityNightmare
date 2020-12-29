@@ -24,6 +24,8 @@ public class RandomRoom : MonoBehaviour
     [SerializeField]
     private GameObject floorCornerDegradedTiles;
 
+    private float[] angle;
+
     [SerializeField]
     private GameObject Room;
     [SerializeField]
@@ -51,6 +53,12 @@ public class RandomRoom : MonoBehaviour
 
     }
     */
+    void Start()
+    {
+        angle = new float[] { 0, 90, 180, 270 };
+        BoardSetup();
+        // InitialiseList();
+    }
     void BoardSetup()
     {
         boardHolder = new GameObject("Board").transform;
@@ -199,7 +207,7 @@ public class RandomRoom : MonoBehaviour
                 else
                 {
                     toInstantiate = floorTiles;
-                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, angle[Random.Range(0,4)]));
                 }
 
                 instance.transform.SetParent(boardHolder);
@@ -222,11 +230,7 @@ public class RandomRoom : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        BoardSetup();
-       // InitialiseList();
-    }
+ 
 
     // Update is called once per frame
     void Update()

@@ -7,9 +7,11 @@ public class FirstMapTarget : MonoBehaviour
 
     [SerializeField]
     private GameObject Targetmap;
+    [SerializeField]
+    private GameObject camera;
     void Awake()
     {
-        Camera.main.GetComponent<MainCamera>().SetBounds(Targetmap);
+        camera.GetComponent<MainCamera>().SetBounds(Targetmap);
     }
 
 }

@@ -8,13 +8,22 @@ public class warp : MonoBehaviour
     private GameObject target;
     [SerializeField]
     private GameObject Targetmap;
+    [SerializeField]
+    private GameObject camera;
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             // desplazar a other (player) a la posición target del
             other.transform.position = target.transform.GetChild(0).transform.position;
-            Camera.main.GetComponent<MainCamera>().SetBounds(Targetmap);
+            if(Targetmap != null){
+                camera.GetComponent<MainCamera>().SetBounds(Targetmap);
+            }
+            else
+            {
+                gameObject.GetComponent<ChangeCamera>().ChangeCameras();
+            }
+            
 
         }
     }
