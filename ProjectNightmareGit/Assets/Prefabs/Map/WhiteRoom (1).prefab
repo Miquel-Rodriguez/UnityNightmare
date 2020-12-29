@@ -358,21 +358,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 16
   rows: 8
-  floorTiles:
-  - {fileID: 1687989768787552307, guid: a6f4c2811fd6ec34db0d73e547986375, type: 3}
-  - {fileID: 1782339521166444188, guid: 76204a2b2d4af384eb7b3552955e3174, type: 3}
+  floorTiles: {fileID: 7257833791342506611, guid: 1e26b5699c589b34e8d0eadd1f14b676,
+    type: 3}
   wallTiles: {fileID: 3570807563665623579, guid: 55adcff8687940846aab2e89c6832d75,
     type: 3}
   CornerWallTile: {fileID: 3193810027935698651, guid: 769012f056c50044e90dd5c2537f7ac6,
     type: 3}
-  chairTiles:
-  - {fileID: 7562970909621262292, guid: 8585a16b17d7c2145aae77685fa7c3bb, type: 3}
-  - {fileID: 445669753135550647, guid: c7b9a68296f9e8f469f78c6eb45e9d77, type: 3}
-  - {fileID: 890340553349238254, guid: fda393778447f2343a17eb5191d40bf4, type: 3}
-  - {fileID: 941263814290464276, guid: 0776d0e9bf071d44fbb6186a9f85a74c, type: 3}
-  cornerOutWalls:
-  - {fileID: 2028935307371901498, guid: 69f0eeeb6e8467044876f681190e10c0, type: 3}
-  - {fileID: 1033467385199512685, guid: b1d564a99850eb1438127f6dd36f1dfd, type: 3}
+  chairTiles: {fileID: 890340553349238254, guid: fda393778447f2343a17eb5191d40bf4,
+    type: 3}
+  cornerOutWalls: {fileID: 2028935307371901498, guid: 69f0eeeb6e8467044876f681190e10c0,
+    type: 3}
+  floorDegradedTiles: {fileID: 8814946697903901006, guid: efe8066894845d54f8cbbc9566ba8b77,
+    type: 3}
+  floorCornerDegradedTiles: {fileID: 3372083937446426436, guid: 3f1efba150a15ab47abb0e2d23aca71d,
+    type: 3}
   Room: {fileID: 6838598591628151588}
   objectsMap:
   - {fileID: 1191623168408993598, guid: f43d3840d6d61cc448d7d2d1b0c7057c, type: 3}

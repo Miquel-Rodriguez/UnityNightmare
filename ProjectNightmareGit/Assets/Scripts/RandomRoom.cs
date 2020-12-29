@@ -10,15 +10,19 @@ public class RandomRoom : MonoBehaviour
     [SerializeField]
     private int rows;
     [SerializeField]
-    private GameObject[] floorTiles;
+    private GameObject floorTiles;
     [SerializeField]
     private GameObject wallTiles;
     [SerializeField]
     private GameObject CornerWallTile;
     [SerializeField]
-    private GameObject[] chairTiles;
+    private GameObject chairTiles;
     [SerializeField]
-    private GameObject[] cornerOutWalls;
+    private GameObject cornerOutWalls;
+    [SerializeField]
+    private GameObject floorDegradedTiles;
+    [SerializeField]
+    private GameObject floorCornerDegradedTiles;
 
     [SerializeField]
     private GameObject Room;
@@ -60,23 +64,23 @@ public class RandomRoom : MonoBehaviour
                 //chairs Wall Tiles
                 if (y == 8 && x >= 1 && x <= 14)
                 {
-                    toInstantiate = chairTiles[2];
+                    toInstantiate = chairTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
                 else if (y == -1 && x >= 1 && x <= 14)
                 {
-                    toInstantiate = chairTiles[3];
-                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
+                    toInstantiate = chairTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
                 }
                 else if (x == 16 && y <= 6 && y >= 1)
                 {
-                    toInstantiate = chairTiles[1];
-                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
+                    toInstantiate = chairTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
                 }
                 else if (x == -1 && y <= 6 && y >= 1)
                 {
-                    toInstantiate = chairTiles[0];
-                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
+                    toInstantiate = chairTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
 
                 //wallTiles
@@ -124,31 +128,77 @@ public class RandomRoom : MonoBehaviour
                 //corner Out Walls
                 else if (y == 8 && x == -1 || y == -1 && x == -1 || y == -1 && x == 16 || y == 8 && x == 16)
                 {
-                    toInstantiate = cornerOutWalls[0];
+                    toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
                 else if (y == 7 && x == -1 || y == 0 && x == -1) {
-                    toInstantiate = cornerOutWalls[1];
+                    toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
                 else if (y == 8 && x == 0 || y == 8 && x == 15)
                 {
-                    toInstantiate = cornerOutWalls[1];
+                    toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
                 }
                 else if (y == -1 && x == 0 || y == -1 && x == 15)
                 {
-                    toInstantiate = cornerOutWalls[1];
+                    toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
                 else if (y == 7 && x == 16 || y == 0 && x == 16)
                 {
-                    toInstantiate = cornerOutWalls[1];
+                    toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
                 }
+
+
+                //floor degread
+                else if (y == 6 && x >= 2 && x <= 13)
+                {
+                    toInstantiate = floorDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
+                }
+                else if (y == 1 && x >= 2 && x <= 13)
+                {
+                    toInstantiate = floorDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
+                }
+                else if (x == 1 && y >= 2 && y <= 5)
+                {
+                    toInstantiate = floorDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
+                }
+                else if (x == 14 && y >= 2 && y <= 5)
+                {
+                    toInstantiate = floorDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
+                }
+
+                //Corner floor degread
+                else if (y == 6 && x == 1)
+                {
+                    toInstantiate = floorCornerDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
+                }
+                else if (y == 6 && x == 14)
+                {
+                    toInstantiate = floorCornerDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
+                }
+                else if (y == 1 && x == 1)
+                {
+                    toInstantiate = floorCornerDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
+                }
+                else if (y == 1 && x == 14)
+                {
+                    toInstantiate = floorCornerDegradedTiles;
+                    instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
+                }
+
                 else
                 {
-                    toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
+                    toInstantiate = floorTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
 

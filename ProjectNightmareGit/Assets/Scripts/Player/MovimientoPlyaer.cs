@@ -8,6 +8,9 @@ public class MovimientoPlyaer : MonoBehaviour
 
     [SerializeField]
     private GameObject InitialMap;
+
+
+
     [SerializeField]
     private float speed = 4f;
 
@@ -78,7 +81,7 @@ public class MovimientoPlyaer : MonoBehaviour
 
         Tickets = InitialTtickets;
 
-        Camera.main.GetComponent<MainCamera>().SetBounds(InitialMap);
+ 
         ticketsUI = GameObject.FindObjectOfType<TicketsUI>();
 
         keys = new bool[3];

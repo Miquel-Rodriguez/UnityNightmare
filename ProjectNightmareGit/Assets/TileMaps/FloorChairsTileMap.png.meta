@@ -1,16 +1,15 @@
 fileFormatVersion: 2
-guid: 950a6a1678c7d9448aedf8415890310f
+guid: 0d3bb776f9bbaf34bb23b61f762b903b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SillasTileMap_0
-    21300002: SillasTileMap_1
-    21300004: SillasTileMap_2
-    21300006: SillasTileMap_3
-    21300008: SillasTileMap_4
-    21300010: SillasTileMap_5
-    21300012: SillasTileMap_6
-    21300014: SillasTileMap_7
-    21300016: SillasTileMap_8
+    21300000: FloorChairsTileMap_0
+    21300002: FloorChairsTileMap_1
+    21300004: FloorChairsTileMap_2
+    21300006: FloorChairsTileMap_3
+    21300008: FloorChairsTileMap_4
+    21300010: FloorChairsTileMap_5
+    21300012: FloorChairsTileMap_6
+    21300014: FloorChairsTileMap_8
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -82,10 +81,130 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SillasTileMap_0
+      name: FloorChairsTileMap_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
+        y: 67
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1954c313b2d3fb64fb49b978636da752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorChairsTileMap_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 67
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f942a294e1f8aca4abc665923d37a562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorChairsTileMap_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 77
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c385e9879d141724c9d8e61c4bbeb28f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorChairsTileMap_3
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 67
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34425e83fefeb141a369b9819f1d3c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorChairsTileMap_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 11
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20b0a84b1a8a044cb2d0c8b520ad8c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorChairsTileMap_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 11
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b3bafefbfa26348a9baa12a3e0e06f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FloorChairsTileMap_6
+      rect:
+        serializedVersion: 2
+        x: 112
         y: 37
         width: 34
         height: 34
@@ -96,19 +215,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d948f0b867f1cce4a98d3061a4bbabee
+      spriteID: 00278243e0fcce84c9f757499b7c7eae
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SillasTileMap_1
+      name: FloorChairsTileMap_8
       rect:
         serializedVersion: 2
-        x: 35
-        y: 37
-        width: 34
-        height: 34
+        x: 190
+        y: 11
+        width: 51
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,147 +235,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73a86e35613cddf45a500726a54c5fb0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_2
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 37
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 108c3cc72b4e11c4995673fd2d59a06f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_3
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 37
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a596b1da055b04478e8dfacc8f400eb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_4
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 37
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec9b377cc94ce5f428a9bdb80bb1a701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_5
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 1
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9314c8b0b23edd249b290c26c8c54ce4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_6
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 34
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53a1cd9ca1ec8ef4e87e3a189a6df0fa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_7
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 1
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12594dc632940a84e9f3aab94c37a79d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SillasTileMap_8
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 1
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03ada41deff4615419434c8b1da91027
+      spriteID: 9775db1103ed4f941a9ff0e75885a3b3
       vertices: []
       indices: 
       edges: []
@@ -264,7 +243,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b5dd8ab07418cfa41a57683b77ea3d93
+    spriteID: 94e8d1f3a8f0b7e4cb3265e58393f86d
     vertices: []
     indices: 
     edges: []
