@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EsconderAlIniciar : MonoBehaviour
+public class ChangeSprites : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private Sprite[] sprites;
     void Start()
     {
-        
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0,sprites.Length)];
     }
 
     // Update is called once per frame

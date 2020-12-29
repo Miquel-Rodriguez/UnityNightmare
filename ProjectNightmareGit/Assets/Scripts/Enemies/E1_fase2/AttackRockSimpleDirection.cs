@@ -31,9 +31,13 @@ public class AttackRockSimpleDirection : MonoBehaviour
     {
         while (true)
         {
-            target = player.transform.position; 
-            dir = (target - transform.position).normalized;
-        yield return new WaitForSeconds(1);
+            if (player != null)
+            {
+                 target = player.transform.position; 
+                 dir = (target - transform.position).normalized;
+                 
+            }
+            yield return new WaitForSeconds(1);
         }
        
     }

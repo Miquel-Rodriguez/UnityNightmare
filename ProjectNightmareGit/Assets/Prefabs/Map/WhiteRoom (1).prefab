@@ -298,7 +298,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 339ea4a10879f45458bce56ba77f4a20, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -361,12 +361,18 @@ MonoBehaviour:
   floorTiles:
   - {fileID: 1687989768787552307, guid: a6f4c2811fd6ec34db0d73e547986375, type: 3}
   - {fileID: 1782339521166444188, guid: 76204a2b2d4af384eb7b3552955e3174, type: 3}
-  wallTiles:
-  - {fileID: 1199854040881399298, guid: cdd88ae7e1293de4495d2b124ae38e03, type: 3}
-  - {fileID: 5825788597998058880, guid: eb9122fd0e51f19489fadd5991d5ba3e, type: 3}
-  outTiles:
-  - {fileID: 6126959615309877554, guid: 454787f6114b6944387305374a22656f, type: 3}
-  - {fileID: 4685696958732521600, guid: 1a573390cd746a547b3f85a6e9cb388b, type: 3}
+  wallTiles: {fileID: 3570807563665623579, guid: 55adcff8687940846aab2e89c6832d75,
+    type: 3}
+  CornerWallTile: {fileID: 3193810027935698651, guid: 769012f056c50044e90dd5c2537f7ac6,
+    type: 3}
+  chairTiles:
+  - {fileID: 7562970909621262292, guid: 8585a16b17d7c2145aae77685fa7c3bb, type: 3}
+  - {fileID: 445669753135550647, guid: c7b9a68296f9e8f469f78c6eb45e9d77, type: 3}
+  - {fileID: 890340553349238254, guid: fda393778447f2343a17eb5191d40bf4, type: 3}
+  - {fileID: 941263814290464276, guid: 0776d0e9bf071d44fbb6186a9f85a74c, type: 3}
+  cornerOutWalls:
+  - {fileID: 2028935307371901498, guid: 69f0eeeb6e8467044876f681190e10c0, type: 3}
+  - {fileID: 1033467385199512685, guid: b1d564a99850eb1438127f6dd36f1dfd, type: 3}
   Room: {fileID: 6838598591628151588}
   objectsMap:
   - {fileID: 1191623168408993598, guid: f43d3840d6d61cc448d7d2d1b0c7057c, type: 3}
@@ -434,6 +440,7 @@ MonoBehaviour:
   enemigos:
   - {fileID: 1993412157177471049, guid: 8cb4c5e1e01c2344bb695ca540def714, type: 3}
   - {fileID: 6763642714945685055, guid: 2981a078de1fbbc4fa3b583d9375ad4d, type: 3}
+  - {fileID: 2217306328920549385, guid: 954221dc957c21146a3cc16e32e6ef1d, type: 3}
   maxEenemies: 3
   minEnemies: 2
 --- !u!114 &6838598591628151590
@@ -450,8 +457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portes:
   - {fileID: 6838598591370559138}
-  numEnemies: 0
-  numBaloons: 0
 --- !u!61 &1486307975
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1051,6 +1051,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Copiadora
       objectReference: {fileID: 0}
+    - target: {fileID: 6838598591628151587, guid: c37e853d628d2e1489520401d91eed11,
+        type: 3}
+      propertyPath: wallTiles
+      value: 
+      objectReference: {fileID: 3570807563665623579, guid: 55adcff8687940846aab2e89c6832d75,
+        type: 3}
     - target: {fileID: 6838598592529433988, guid: c37e853d628d2e1489520401d91eed11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1234,6 +1240,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room2
       objectReference: {fileID: 0}
+    - target: {fileID: 6838598591628151587, guid: c37e853d628d2e1489520401d91eed11,
+        type: 3}
+      propertyPath: wallTiles
+      value: 
+      objectReference: {fileID: 3570807563665623579, guid: 55adcff8687940846aab2e89c6832d75,
+        type: 3}
     - target: {fileID: 6838598592529433988, guid: c37e853d628d2e1489520401d91eed11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1561,17 +1573,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteRoom (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 6838598591628151585, guid: c37e853d628d2e1489520401d91eed11,
-        type: 3}
-      propertyPath: enemigos.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6838598591628151585, guid: c37e853d628d2e1489520401d91eed11,
-        type: 3}
-      propertyPath: enemigos.Array.data[2]
-      value: 
-      objectReference: {fileID: 2217306328920549385, guid: 954221dc957c21146a3cc16e32e6ef1d,
-        type: 3}
     - target: {fileID: 6838598592529433988, guid: c37e853d628d2e1489520401d91eed11,
         type: 3}
       propertyPath: m_LocalPosition.x

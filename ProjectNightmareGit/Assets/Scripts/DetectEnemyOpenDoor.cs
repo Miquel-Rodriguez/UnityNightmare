@@ -37,7 +37,14 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                     print("semi abriendo");
                     child.GetComponent<BoxCollider2D>().enabled = false;
                 }
-            }
+                
+                if (child.CompareTag("MultiStone"))
+                {
+                    child.GetComponent<EStatic4>().Atacando = false;
+                }
+
+               
+            }   
         }
     }
 
@@ -67,6 +74,7 @@ public class DetectEnemyOpenDoor : MonoBehaviour
 
     private void Start()
     {
+        
     }
 
     public void Mirar()

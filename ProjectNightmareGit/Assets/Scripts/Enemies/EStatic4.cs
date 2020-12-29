@@ -10,14 +10,19 @@ public class EStatic4 : MonoBehaviour
     private float speed;
 
     private GameObject rock;
+
+    private bool atacando;
+
+    public bool Atacando { get; set; }
     void Start()
     {
+        Atacando = true;
         StartCoroutine(Attack());
     }
 
     public IEnumerator Attack()
     {
-        while (true)
+        while (Atacando)
         {
             yield return new WaitForSeconds(1.5f);
             InstanceAndForce(1, 1);
@@ -32,6 +37,7 @@ public class EStatic4 : MonoBehaviour
             InstanceAndForce(0, 1);
             
         }
+        gameObject.GetComponent<Animator>().speed = 0;
 
     }
 
