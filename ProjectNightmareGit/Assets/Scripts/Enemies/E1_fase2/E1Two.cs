@@ -17,8 +17,8 @@ public class E1Two : MonoBehaviour
     private float attackSpeed;
     bool attacking;
     [SerializeField]
-    private int maxHp = 3;
-    private int hp;
+    private float maxHp = 3;
+    private float hp;
 
     private GameObject player;
 
@@ -118,7 +118,7 @@ public class E1Two : MonoBehaviour
 
     public void Attacked()
     {
-        int d = playerScript.Damage;
+        float d = playerScript.damageV;
         StartCoroutine(CambiarColor());
         if ((hp -= d) <= 0)
         {

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -19,8 +18,8 @@ public class Boss : MonoBehaviour
     private float attackSpeed;
     bool attacking;
     [SerializeField]
-    private int maxHp;
-    private int hp;
+    private float maxHp;
+    private float hp;
 
     private GameObject player;
 
@@ -43,12 +42,12 @@ public class Boss : MonoBehaviour
     private Transform StaticEnemy2;
 
     private Transform transformSalaBoss;
-    private bool activar1=true;
-    private bool activar2=true;
-    
+    private bool activar1 = true;
+    private bool activar2 = true;
+
     void Start()
     {
-       
+
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -77,8 +76,8 @@ public class Boss : MonoBehaviour
 
         if (player != null)
         {
-            Vector3 target  ;
-        
+            Vector3 target;
+
             Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
             Debug.DrawRay(transform.position, forward, Color.red);
 
@@ -98,7 +97,7 @@ public class Boss : MonoBehaviour
             }
             if (distance < visionRadius && distance > attackRadius)
             {
-                
+
             }
 
 
@@ -118,9 +117,9 @@ public class Boss : MonoBehaviour
     IEnumerator attack(float seconds)
     {
         attacking = true;
-        
+
         yield return new WaitForSeconds(4);
-        childAttackBody.gameObject.GetComponent<Animator>().SetBool("StartRotation",true);
+        childAttackBody.gameObject.GetComponent<Animator>().SetBool("StartRotation", true);
         yield return new WaitForSeconds(0.1f);
         childAttackBody.gameObject.GetComponent<Animator>().SetBool("StartRotation", false);
         yield return new WaitForSeconds(1);
@@ -134,7 +133,8 @@ public class Boss : MonoBehaviour
             childBarrier.GetComponent<ScaleGradually>().VolverNormalidad();
             childBarrier.gameObject.SetActive(true);
             DoAttack();
-        }else childBarrier.gameObject.SetActive(false);
+        }
+        else childBarrier.gameObject.SetActive(false);
     }
 
     private void DoAttack()
@@ -152,13 +152,13 @@ public class Boss : MonoBehaviour
     private IEnumerator AtaqueLluviaDeGlobos()
     {
         print("Inicio lluvia globos");
-       transformSalaBoss = transform.GetComponentInParent<Transform>();
-        for (int k=0; k<5; k++)
+        transformSalaBoss = transform.GetComponentInParent<Transform>();
+        for (int k = 0; k < 5; k++)
         {
             for (int i = 0; i < 5; i++)
             {
-                
-                Instantiate(globo, new Vector3(transformSalaBoss.position.x + Random.Range(-8, 9+1), transformSalaBoss.position.y + Random.Range(-7, 10+1), 0f), Quaternion.identity);
+
+                Instantiate(globo, new Vector3(transformSalaBoss.position.x + Random.Range(-8, 9 + 1), transformSalaBoss.position.y + Random.Range(-7, 10 + 1), 0f), Quaternion.identity);
             }
             yield return new WaitForSeconds(0.3f);
         }
@@ -170,10 +170,10 @@ public class Boss : MonoBehaviour
 
     public void Attacked()
     {
-       
-        int d = playerScript.Damage;
+
+        float d = playerScript.damageV;
         StartCoroutine(CambiarColor());
-       
+
         if ((hp -= d) <= 0)
         {
             StartCoroutine(Morir());
@@ -185,7 +185,7 @@ public class Boss : MonoBehaviour
             StaticEnemy1.GetComponent<EStatic4>().comproba = true;
             activar1 = false;
         }
-        if (hp <= maxHp / 3 * 2  && activar2)
+        if (hp <= maxHp / 3 * 2 && activar2)
         {
             StaticEnemy2.GetComponent<EStatic4>().comproba = true;
             StaticEnemy2.gameObject.GetComponent<Animator>().speed = 1;

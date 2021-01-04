@@ -19,8 +19,8 @@ public class Enemy1 : MonoBehaviour
     private float attackSpeed;
     bool attacking;
     [SerializeField]
-    private int maxHp = 3;
-    private int hp;
+    private float maxHp = 3;
+    private float hp;
 
     private GameObject player;
 
@@ -122,8 +122,9 @@ public class Enemy1 : MonoBehaviour
 
     public void Attacked()
     {
-        int d = playerScript.Damage;
-        StartCoroutine(CambiarColor()); 
+        float d = playerScript.damageV;
+        StartCoroutine(CambiarColor());
+        print(d);
         if ((hp-=d) <= 0)
         {
             StartCoroutine(Morir());
@@ -153,4 +154,6 @@ public class Enemy1 : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         renderEnemy.material.SetColor("_Color", Color.white);
     }
+
+
 }

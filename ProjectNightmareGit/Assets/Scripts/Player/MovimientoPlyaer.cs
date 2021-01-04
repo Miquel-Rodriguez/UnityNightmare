@@ -6,7 +6,9 @@ public class MovimientoPlyaer : MonoBehaviour
 {
 
     [SerializeField]
-    private float speed = 4f;
+    private float speed;
+
+    public float speedV { get { return speed;} set{ speed = value;}}
 
     private Animator anim;
     private Rigidbody2D rb2d;
@@ -32,8 +34,8 @@ public class MovimientoPlyaer : MonoBehaviour
 
     private TicketsUI ticketsUI;
     private int InitialTtickets = 0;
-    private int Tickets;
-
+    
+    public int Tickets { get; set; }
     private bool attacking=false;
 
     private bool upKeyL = true;
@@ -50,8 +52,11 @@ public class MovimientoPlyaer : MonoBehaviour
         return keys[pos];
     }
 
+    private float damage = 1;
+    public float damageV { get{ return damage; } set { damage = value;} }
 
-    public int Damage { get; private set; }
+
+    public bool haveSlash { get; set; }
 
     void Start()
     {
@@ -85,7 +90,7 @@ public class MovimientoPlyaer : MonoBehaviour
         ChargedAttack();
 
     
-        if (Input.GetKeyDown("1") && Time.time >= nextFireTime){
+        if (haveSlash && Input.GetKeyDown("1") && Time.time >= nextFireTime){
             LanzarHabilidad();
         }
         
@@ -98,14 +103,10 @@ public class MovimientoPlyaer : MonoBehaviour
             }
 
         }
-               
+        
         PreventMovement();
-
-
         if (!upKeyL)
         {
-
-            
             TimeChargeAttack();
         }else tiempo = 0;
 
@@ -133,16 +134,16 @@ public class MovimientoPlyaer : MonoBehaviour
 
     void LanzarHabilidad()
     {
-                nextFireTime = Time.time + cooldawnDistanceAttack;
+        nextFireTime = Time.time + cooldawnDistanceAttack;
 
-                //Hacer la variación de grados según la posición de movimiento
-                DistanceAttackRotation = Mathf.Atan2(
-                anim.GetFloat("movY"),
-                anim.GetFloat("movX"))
-                * Mathf.Rad2Deg;
+        //Hacer la variación de grados según la posición de movimiento
+        DistanceAttackRotation = Mathf.Atan2(
+        anim.GetFloat("movY"),
+        anim.GetFloat("movX"))
+        * Mathf.Rad2Deg;
 
-                //instanciar el objeto arraowprefab
-                Instantiate(DistanceAttackprefab, transform.position, Quaternion.Euler(0, 0, DistanceAttackRotation + 90));
+        //instanciar el objeto arraowprefab
+        Instantiate(DistanceAttackprefab, transform.position, Quaternion.Euler(0, 0, DistanceAttackRotation + 90));
         
     }
 
@@ -181,7 +182,6 @@ public class MovimientoPlyaer : MonoBehaviour
         if (Input.GetKeyDown("k") && !attacking)
         {
             anim.SetTrigger("attacking");
-            Damage = 1;
         }
 
         //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
@@ -239,16 +239,13 @@ public class MovimientoPlyaer : MonoBehaviour
             upKeyL = true;
             if (tiempo < 1)
             {
-                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + Damage);
             }
             else if(tiempo>=1 && tiempo < 2)
             {
-                Damage = 2;
-                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + Damage);
+                damageV += 2;
             }
             else if (tiempo >= 2){
-                Damage = (int)tiempo;
-                print("ha pasado timepo: "+tiempo+" Hace tanto Daño: "+Damage);
+                damageV += tiempo;
             }
 
             movePrevent = false;
@@ -301,8 +298,12 @@ public class MovimientoPlyaer : MonoBehaviour
     public void PlusTicket()
     {
         Tickets++;
-        ticketsUI.changeTicketsText(Tickets);
+        UploadTickets();
+    }
 
+    public void UploadTickets()
+    {
+        ticketsUI.changeTicketsText(Tickets);
     }
     
 
