@@ -14,6 +14,9 @@ public class SpriteLives : MonoBehaviour
 
     public void ChangeHearts(int num)
     {
+        if (num < 0){
+            num = 0;
+        }
         gameObject.GetComponent<Image>().sprite = hearts[num];
     }
 }

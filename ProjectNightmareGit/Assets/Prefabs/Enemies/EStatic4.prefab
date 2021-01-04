@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5812080508789381138}
   - component: {fileID: 5812080508789381137}
   - component: {fileID: 5812080508789381136}
+  - component: {fileID: 6438507850305676799}
   m_Layer: 0
   m_Name: EStatic4
   m_TagString: Untagged
@@ -129,3 +130,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixEveryFrame: 1
+--- !u!58 &6438507850305676799
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5812080508789381141}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.008448015, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1200364

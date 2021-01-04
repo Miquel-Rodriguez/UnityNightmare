@@ -35,26 +35,19 @@ public class GeneracionEnemigos : MonoBehaviour
 
             
             if (myEnemy.transform.CompareTag("Enemy"))
-            {
                  d.Variable +=1;
-                
-            }
-            if (myEnemy.transform.CompareTag("explosion"))
-            {
+          
+            if (myEnemy.transform.CompareTag("explosion"))          
                 d.NumBaloons += 1;
 
-            }
-
-
-
         }
-
-       
-
+        StartCoroutine(Wait(1));
+    
     }
-    
-
-    
-
+     private IEnumerator Wait(int n)
+    {
+        yield return new WaitForSeconds(n);
+        d.ComprobarEnemigos();
+    }
 
 }

@@ -11,7 +11,7 @@ public class FirstMapTarget : MonoBehaviour
     private GameObject camera;
     void Awake()
     {
-        camera.GetComponent<MainCamera>().SetBounds(Targetmap);
+       // camera.GetComponent<MainCamera>().SetBounds(Targetmap);
     }
 
 }

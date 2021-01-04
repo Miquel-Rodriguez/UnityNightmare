@@ -17,4 +17,5 @@ public class ColliderSendMassage : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

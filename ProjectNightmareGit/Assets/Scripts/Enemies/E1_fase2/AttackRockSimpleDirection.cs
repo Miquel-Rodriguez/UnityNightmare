@@ -48,8 +48,9 @@ public class AttackRockSimpleDirection : MonoBehaviour
         
             rg.MovePosition(transform.position + (dir * Random.Range(1, speed + 1)) * Time.deltaTime);              
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D (Collider2D collision)
     {
+        print("comprobando trigeer");
         if(collision.transform.CompareTag("BoxPlayer") || collision.transform.CompareTag("Attack") || collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Door"))
         {
             Destroy(gameObject);

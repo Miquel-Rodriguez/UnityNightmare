@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class DetectEnemyOpenDoor : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] portes;
 
     private Animator animaciones;
 
-
-    private float numEnemies=0;
-    private float numBaloons=0;
+    [SerializeField]
+    private float numEnemies;
+    [SerializeField]
+    private float numBaloons;
 
     private float variable;
 
@@ -36,14 +35,13 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 {
                     print("semi abriendo");
                     child.GetComponent<BoxCollider2D>().enabled = false;
+                    child.GetChild(0).gameObject.SetActive(true);
                 }
                 
                 if (child.CompareTag("MultiStone"))
                 {
                     child.GetComponent<EStatic4>().Atacando = false;
                 }
-
-               
             }   
         }
     }
@@ -56,11 +54,8 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         {
             NumEnemies++;
             ComprobarEnemigos();
-
-
+            print("detected");
         }
-       
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -72,19 +67,9 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        
-    }
 
     public void Mirar()
     {
-        print(NumBaloons + "baloons");
-        
+        print(NumBaloons + "baloons");       
     }
-
-
-
-
-
 }

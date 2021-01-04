@@ -13,8 +13,9 @@ public class ChangeCamera : MonoBehaviour
 
     public void ChangeCameras()
     {
-        toDisable.SetActive(false);
+        
         toEnable.SetActive(true);
+        toDisable.SetActive(false);
     }
 
 }

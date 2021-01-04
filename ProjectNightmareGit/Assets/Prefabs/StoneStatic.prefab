@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2904711029661583928}
   - component: {fileID: 2904711029661583931}
   - component: {fileID: 1773398712663236081}
+  - component: {fileID: 114692624893884708}
   m_Layer: 0
   m_Name: StoneStatic
   m_TagString: RockAttack
@@ -142,3 +143,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixEveryFrame: 1
+--- !u!114 &114692624893884708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904711029661583930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b30cd263701844bbd89214118edc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

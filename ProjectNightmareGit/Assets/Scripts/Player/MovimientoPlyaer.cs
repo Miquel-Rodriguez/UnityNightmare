@@ -5,12 +5,6 @@ using UnityEngine;
 public class MovimientoPlyaer : MonoBehaviour
 {
 
-
-    [SerializeField]
-    private GameObject InitialMap;
-
-
-
     [SerializeField]
     private float speed = 4f;
 
@@ -43,8 +37,6 @@ public class MovimientoPlyaer : MonoBehaviour
     private bool attacking=false;
 
     private bool upKeyL = true;
-
-    private int damage;
     private float tiempo;
 
     private bool[] keys;
@@ -59,13 +51,7 @@ public class MovimientoPlyaer : MonoBehaviour
     }
 
 
-    public int Damage
-    {
-        get
-        {
-            return damage;
-        }
-    }
+    public int Damage { get; private set; }
 
     void Start()
     {
@@ -104,7 +90,7 @@ public class MovimientoPlyaer : MonoBehaviour
         }
         
 
-        if (Input.GetKeyDown("e")){
+        if (Input.GetKeyDown("j")){
             if(speed==0){
                 //ponerse escudo para parar daño
             }else{
@@ -195,7 +181,7 @@ public class MovimientoPlyaer : MonoBehaviour
         if (Input.GetKeyDown("k") && !attacking)
         {
             anim.SetTrigger("attacking");
-            damage = 1;
+            Damage = 1;
         }
 
         //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
@@ -253,16 +239,16 @@ public class MovimientoPlyaer : MonoBehaviour
             upKeyL = true;
             if (tiempo < 1)
             {
-                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + damage);
+                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + Damage);
             }
             else if(tiempo>=1 && tiempo < 2)
             {
-                damage = 2;
-                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + damage);
+                Damage = 2;
+                print("ha pasado timepo: " + tiempo + " Hace tanto Daño: " + Damage);
             }
             else if (tiempo >= 2){
-                damage = 3;
-                print("ha pasado timepo: "+tiempo+" Hace tanto Daño: "+damage);
+                Damage = (int)tiempo;
+                print("ha pasado timepo: "+tiempo+" Hace tanto Daño: "+Damage);
             }
 
             movePrevent = false;

@@ -50,11 +50,6 @@ public class Enemy1 : MonoBehaviour
         playerScript = FindObjectOfType<MovimientoPlyaer>();
     }
 
-    public void AddParent()
-    {
-      
-    }
-
 
     void Update()
     {
@@ -62,14 +57,14 @@ public class Enemy1 : MonoBehaviour
         if (player != null)
         {
         Vector3 target = initialPosition;
-
+        /*
         RaycastHit2D hit = Physics2D.Raycast(
             transform.position,
             player.transform.position - transform.position,
             visionRadius,
             //ejecutar el raycast en la capa default
             1 << LayerMask.NameToLayer("Default"));
-
+        */
         Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
         Debug.DrawRay(transform.position, forward, Color.red);
 

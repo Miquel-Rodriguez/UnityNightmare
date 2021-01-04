@@ -70,55 +70,55 @@ public class RandomRoom : MonoBehaviour
             for (int y = -1; y < rows + 1; y++)
             {
                 //chairs Wall Tiles
-                if (y == 8 && x >= 1 && x <= 14)
+                if (y == rows && x >= 1 && x <= columns-2)
                 {
                     toInstantiate = chairTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (y == -1 && x >= 1 && x <= 14)
+                else if (y == -1 && x >= 1 && x <= columns-2)
                 {
                     toInstantiate = chairTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
                 }
-                else if (x == 16 && y <= 6 && y >= 1)
+                else if (x == columns && y <= rows-2 && y >= 1)
                 {
                     toInstantiate = chairTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
                 }
-                else if (x == -1 && y <= 6 && y >= 1)
+                else if (x == -1 && y <= rows-2 && y >= 1)
                 {
                     toInstantiate = chairTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
 
                 //wallTiles
-                else if (y == 7 && x >= 1 && x <= 14)
+                else if (y == rows-1 && x >= 1 && x <= columns-2)
                 {
                     toInstantiate = wallTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (x == 0 && y >= 1 && y <= 6)
+                else if (x == 0 && y >= 1 && y <= rows-2)
                 {
                     toInstantiate = wallTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
-                else if (y == 0 && x >= 1 && x <= 14)
+                else if (y == 0 && x >= 1 && x <= columns-2)
                 {
                     toInstantiate = wallTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
                 }
-                else if (x == 15 && y >= 1 && y <= 6)
+                else if (x == columns-1 && y >= 1 && y <= rows-2)
                 {
                     toInstantiate = wallTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
                 }
                 //CornerTiles
-                else if (y == 7 && x == 0)
+                else if (y == rows-1 && x == 0)
                 {
                     toInstantiate = CornerWallTile;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (y == 7 && x == 15)
+                else if (y == rows-1 && x == columns-1)
                 {
                     toInstantiate = CornerWallTile;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
@@ -128,32 +128,32 @@ public class RandomRoom : MonoBehaviour
                     toInstantiate = CornerWallTile;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
-                else if (y == 0 && x == 15)
+                else if (y == 0 && x == columns-1)
                 {
                     toInstantiate = CornerWallTile;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
                 }
                 //corner Out Walls
-                else if (y == 8 && x == -1 || y == -1 && x == -1 || y == -1 && x == 16 || y == 8 && x == 16)
+                else if (y == rows && x == -1 || y == -1 && x == -1 || y == -1 && x == columns || y == rows && x == columns)
                 {
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (y == 7 && x == -1 || y == 0 && x == -1) {
+                else if (y == rows-1 && x == -1 || y == 0 && x == -1) {
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (y == 8 && x == 0 || y == 8 && x == 15)
+                else if (y == rows && x == 0 || y == rows && x == columns-1)
                 {
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
                 }
-                else if (y == -1 && x == 0 || y == -1 && x == 15)
+                else if (y == -1 && x == 0 || y == -1 && x == columns-1)
                 {
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
-                else if (y == 7 && x == 16 || y == 0 && x == 16)
+                else if (y == rows-1 && x == columns || y == 0 && x == 1)
                 {
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
@@ -161,34 +161,34 @@ public class RandomRoom : MonoBehaviour
 
 
                 //floor degread
-                else if (y == 6 && x >= 2 && x <= 13)
+                else if (y == rows-2 && x >= 2 && x <= columns-3)
                 {
                     toInstantiate = floorDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
                 }
-                else if (y == 1 && x >= 2 && x <= 13)
+                else if (y == 1 && x >= 2 && x <= columns-3)
                 {
                     toInstantiate = floorDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
-                else if (x == 1 && y >= 2 && y <= 5)
+                else if (x == 1 && y >= 2 && y <= rows-3)
                 {
                     toInstantiate = floorDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (x == 14 && y >= 2 && y <= 5)
+                else if (x == columns-2 && y >= 2 && y <= rows-3)
                 {
                     toInstantiate = floorDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
                 }
 
                 //Corner floor degread
-                else if (y == 6 && x == 1)
+                else if (y == rows-2 && x == 1)
                 {
                     toInstantiate = floorCornerDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 0));
                 }
-                else if (y == 6 && x == 14)
+                else if (y == rows-2 && x == columns-2)
                 {
                     toInstantiate = floorCornerDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 270));
@@ -198,7 +198,7 @@ public class RandomRoom : MonoBehaviour
                     toInstantiate = floorCornerDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
-                else if (y == 1 && x == 14)
+                else if (y == 1 && x == columns-2)
                 {
                     toInstantiate = floorCornerDegradedTiles;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
@@ -220,21 +220,17 @@ public class RandomRoom : MonoBehaviour
     }
 
     public void SetupObjectsMap()
-    { 
-        GameObject toInstantiate = objectsMap[0];
-        int repeats = Random.Range(2, 5);
-        for (int i = 0; i < repeats; i++)
-        {
-            GameObject instance = Instantiate(toInstantiate, new Vector3(plantilla.position.x + Random.Range(3, 14), plantilla.position.y + Random.Range(3, 9), 0f), Quaternion.identity);
-            instance.transform.SetParent(Room.transform);
-        }
-    }
-
- 
-
-    // Update is called once per frame
-    void Update()
     {
-        
+        if (objectsMap.Length>0)
+        {
+         GameObject toInstantiate = objectsMap[0];
+                int repeats = Random.Range(2, 5);
+                for (int i = 0; i < repeats; i++)
+                {
+                    GameObject instance = Instantiate(toInstantiate, new Vector3(plantilla.position.x + Random.Range(3, 14), plantilla.position.y + Random.Range(3, 9), 0f), Quaternion.identity);
+                    instance.transform.SetParent(Room.transform);
+                }
+        }
+       
     }
 }
