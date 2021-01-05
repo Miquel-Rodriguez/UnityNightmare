@@ -9,11 +9,30 @@ public class Slot : MonoBehaviour
     public string type;
     public string descripcion;
     public Sprite icon;
+    
+    [SerializeField]
+    private bool empty = true;
+    public bool Empty { get { return empty; } set { empty = value; } }
+    public int NumItems { get; set; }
 
-    public bool empty;
+    private Transform slotIcon;
+    private Transform slotNum;
+
+    private void Start()
+    {
+        slotIcon = transform.GetChild(0);
+        slotNum = transform.GetChild(1);
+        NumItems = 1;
+    }
 
     public void UpdateSlot()
     {
-        this.GetComponent<Image>().sprite = icon;
+        slotIcon.GetComponent<Image>().sprite = icon;
+        UpdateNumItems();
+    }
+
+    public void UpdateNumItems()
+    {
+        slotNum.GetComponent<Text>().text =  NumItems.ToString();
     }
 }

@@ -8,17 +8,8 @@ public class GetKey : MonoBehaviour
 
     [SerializeField]
     private int numKey;
-    private void Awake()
-    {
-        player = FindObjectOfType<MovimientoPlyaer>();
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("BoxPlayer"))
-        {
-            player.putKey(numKey);
-            Destroy(gameObject);
-        }
-    }
+    public int NumKey{ get { return numKey;}}
+   
+
 }

@@ -26,14 +26,12 @@ public class DetectEnemyOpenDoor : MonoBehaviour
             {
                 if (child.CompareTag("Door"))
                 {
-                print("abriendo");
                 child.GetComponent<BoxCollider2D>().enabled = false;
                 animaciones = child.GetComponent<Animator>();
                 animaciones.SetBool("open", true);
                 }
                 if (child.CompareTag("DoorKey"))
                 {
-                    print("semi abriendo");
                     child.GetComponent<BoxCollider2D>().enabled = false;
                     child.GetChild(0).gameObject.SetActive(true);
                 }
@@ -54,7 +52,6 @@ public class DetectEnemyOpenDoor : MonoBehaviour
         {
             NumEnemies++;
             ComprobarEnemigos();
-            print("detected");
         }
     }
 

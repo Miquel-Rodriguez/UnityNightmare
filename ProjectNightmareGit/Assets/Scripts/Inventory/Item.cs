@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int ID;
+    public int Id;
     public string type;
     public string descripcion;
     public Sprite icon;

@@ -20,6 +20,7 @@ TagManager:
   - MultiStone
   - VirtualCamera
   - Shadow
+  - Item
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,6 @@ public class DesapearAtContact : MonoBehaviour
     {
         if(collision.CompareTag("RockAttack") || collision.CompareTag("Enemy") || collision.CompareTag("Wall"))
         {
-            print("aaaaaaaaaaaaaaaaaaaaaaaaaaa"+collision.tag);
             Destroy(gameObject);
         }
     }

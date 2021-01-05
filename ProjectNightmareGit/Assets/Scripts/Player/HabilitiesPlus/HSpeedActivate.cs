@@ -17,6 +17,7 @@ public class HSpeedActivate : MonoBehaviour
             FindObjectOfType<MovimientoPlyaer>().Tickets -= 10;
             FindObjectOfType<MovimientoPlyaer>().UploadTickets();
             DisableButton();
+            FindObjectOfType<Inventory>().InventoriLessTickets();
         }
     }
 

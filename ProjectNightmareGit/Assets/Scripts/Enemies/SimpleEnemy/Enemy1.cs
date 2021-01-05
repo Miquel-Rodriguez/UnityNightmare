@@ -124,7 +124,6 @@ public class Enemy1 : MonoBehaviour
     {
         float d = playerScript.damageV;
         StartCoroutine(CambiarColor());
-        print(d);
         if ((hp-=d) <= 0)
         {
             StartCoroutine(Morir());

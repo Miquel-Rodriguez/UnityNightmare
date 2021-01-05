@@ -73,7 +73,6 @@ public class InsTicket : MonoBehaviour
             if (Random.Range(0, 3 + 1) == 1){ 
             GameObject instance = Instantiate(hearts[Random.Range(0, 1 + 1)], new Vector3(v.x, v.y, 0f), Quaternion.identity);
             instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
-                print("pongo corazon");
             }
         }
     }
