@@ -304,6 +304,7 @@ public class MovimientoPlyaer : MonoBehaviour
     public void UploadTickets()
     {
         ticketsUI.changeTicketsText(Tickets);
+        FindObjectOfType<Inventory>().InventoriLessTickets();
     }
     
 

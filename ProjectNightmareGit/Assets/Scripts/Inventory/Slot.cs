@@ -35,4 +35,6 @@ public class Slot : MonoBehaviour
     {
         slotNum.GetComponent<Text>().text =  NumItems.ToString();
     }
+
+
 }

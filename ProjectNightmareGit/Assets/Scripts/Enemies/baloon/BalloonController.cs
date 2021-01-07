@@ -28,29 +28,29 @@ public class BalloonController : MonoBehaviour
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            yield return new WaitForSeconds(tEspera);
+            yield return new WaitForSeconds(tEspera/2);
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
-            yield return new WaitForSeconds(tEspera);
+            yield return new WaitForSeconds(tEspera/2);
         } while (i < vagades);
         i = 0;
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            yield return new WaitForSeconds(tEspera / 2);
+            yield return new WaitForSeconds(tEspera / 4);
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
-            yield return new WaitForSeconds(tEspera / 2);
+            yield return new WaitForSeconds(tEspera / 4);
         } while (i < vagades * 2);
 
         i = 0;
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            yield return new WaitForSeconds(tEspera / 4);
+            yield return new WaitForSeconds(tEspera / 6);
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
-            yield return new WaitForSeconds(tEspera / 4);
+            yield return new WaitForSeconds(tEspera / 6);
         } while (i < vagades * 3);
         StartCoroutine(Attack());
     }

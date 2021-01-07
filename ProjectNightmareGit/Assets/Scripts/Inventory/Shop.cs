@@ -8,19 +8,35 @@ public class Shop : MonoBehaviour
     [SerializeField]
     private GameObject shop;
 
-    void Update()
+
+    private void Start()
     {
-       
+        shop.SetActive(false);
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BoxPlayer") || collision.CompareTag("Player"))
+        {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                shopEnabled = !shopEnabled;
+                 shopEnabled = !shopEnabled;
+                if (shopEnabled)
+                {
+                    shop.SetActive(true);
+                }
+                else shop.SetActive(false);
             }
 
-            if (shopEnabled)
-            {
-                shop.SetActive(true);
-            }
-            else shop.SetActive(false);
-        
+            
+        }
+         
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        shop.SetActive(false);
+    }
+
+
+
 }

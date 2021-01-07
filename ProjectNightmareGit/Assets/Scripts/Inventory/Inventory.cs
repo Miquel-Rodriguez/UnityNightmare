@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
     private GameObject slotHolder;
 
     private int ticketPosition=-1;
+    private int potionPosition = -1;
 
     void Start()
     {
@@ -84,6 +85,9 @@ public class Inventory : MonoBehaviour
                     ticketPosition = i;
                     FindObjectOfType<MovimientoPlyaer>().PlusTicket();
 
+                }else if (itemId == 3 && potionPosition == -1)
+                {
+                    potionPosition = i;
                 }
                 if (itemType == "Key")
                 {
@@ -128,8 +132,10 @@ public class Inventory : MonoBehaviour
         slot[ticketPosition].GetComponent<Slot>().UpdateNumItems();
     }
 
-    public void AddItemToShop()
+    public void InventoryLessPotion()
     {
-
+        slot[potionPosition].GetComponent<Slot>().NumItems -= 1;
+        slot[potionPosition].GetComponent<Slot>().UpdateNumItems();
     }
+
 }

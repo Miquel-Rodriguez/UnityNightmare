@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6838598592529433988}
   - component: {fileID: 6838598591622865265}
+  - component: {fileID: 7272423037568598057}
   m_Layer: 0
   m_Name: WhiteRoom (1)
   m_TagString: Untagged
@@ -80,6 +81,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7272423037568598057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6838598591622865270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526af08f4303ae64eb8b59c828969308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6838598591628151588
 GameObject:
   m_ObjectHideFlags: 0

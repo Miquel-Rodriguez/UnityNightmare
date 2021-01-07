@@ -74,6 +74,12 @@ public class Lesslife : MonoBehaviour
         }
     }
 
+    public void HealOne()
+    {
+        life += 1;
+        ChangeSpritesLife();
+    }
+
 
     public void TakeDamage(int damage)
     {
