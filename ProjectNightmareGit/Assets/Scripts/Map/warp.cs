@@ -11,7 +11,7 @@ public class warp : MonoBehaviour
     private GameObject Targetmap;
     */
     [SerializeField]
-    private GameObject camera;
+    private string camera;
     
     [SerializeField]
     private CompositeCollider2D limits;
@@ -33,13 +33,15 @@ public class warp : MonoBehaviour
             ChangeCamera change = gameObject.GetComponent<ChangeCamera>();
             if (change != null)
             {
+                print("sehace");
                 change.ChangeCameras();
             }
             other.transform.position = target.transform.GetChild(0).transform.position;
             other.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            if (camera != null)
+            if (limits != null)
             {
-                camera.GetComponent<CinemachineConfiner>().m_BoundingShape2D=(limits);
+
+                GameObject.Find(camera).GetComponent<CinemachineConfiner>().m_BoundingShape2D=(limits);
             }
             FadeOut();
 

@@ -35,8 +35,11 @@ public class InsTicket : MonoBehaviour
             int num = Random.Range(0,1+1);
             for (int j = 0; j < num; j++)
             {
-                GameObject instance = Instantiate(ticket, new Vector3(v.x, v.y, 0f), Quaternion.identity);
+                GameObject instance = Instantiate(ticket, new Vector2(v.x, v.y), Quaternion.identity);
+                print(v.x + " x");
+                print(v.y + " y");
                 instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
+                instance.transform.SetParent(transform);
             }
         }
 
@@ -71,8 +74,9 @@ public class InsTicket : MonoBehaviour
         for(int i = 11; i > player.Life; i--)
         {
             if (Random.Range(0, 3 + 1) == 1){ 
-            GameObject instance = Instantiate(hearts[Random.Range(0, 1 + 1)], new Vector3(v.x, v.y, 0f), Quaternion.identity);
+            GameObject instance = Instantiate(hearts[Random.Range(0, 1 + 1)], new Vector2(v.x, v.y), Quaternion.identity);
             instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
+            instance.transform.SetParent(transform);
             }
         }
     }
@@ -83,6 +87,7 @@ public class InsTicket : MonoBehaviour
     public float RandomF()
     {
         return Random.Range(-140, 140);
+
     }
 
 }

@@ -32,7 +32,7 @@ public class RandomRoom : MonoBehaviour
     private GameObject[] objectsMap;
     //public string doors;
     //public GameObject doorTile;
-    [SerializeField]
+    
     private Transform plantilla;
 
     private Transform boardHolder;
@@ -55,9 +55,11 @@ public class RandomRoom : MonoBehaviour
     */
     void Start()
     {
+        plantilla = transform;
         angle = new float[] { 0, 90, 180, 270 };
         BoardSetup();
         // InitialiseList();
+       
     }
     void BoardSetup()
     {
@@ -153,7 +155,7 @@ public class RandomRoom : MonoBehaviour
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 90));
                 }
-                else if (y == rows-1 && x == columns || y == 0 && x == 1)
+                else if (y == rows-1 && x == columns || y == 0 && (x == 1 || x==columns))
                 {
                     toInstantiate = cornerOutWalls;
                     instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.Euler(0, 0, 180));
@@ -227,7 +229,7 @@ public class RandomRoom : MonoBehaviour
                 int repeats = Random.Range(2, 5);
                 for (int i = 0; i < repeats; i++)
                 {
-                    GameObject instance = Instantiate(toInstantiate, new Vector3(plantilla.position.x + Random.Range(3, 14), plantilla.position.y + Random.Range(3, 9), 0f), Quaternion.identity);
+                    GameObject instance = Instantiate(toInstantiate, new Vector3(Room.transform.position.x + Random.Range(2, 14), Room.transform.position.y + Random.Range(2, 6), 0f), Quaternion.identity);
                     instance.transform.SetParent(Room.transform);
                 }
         }

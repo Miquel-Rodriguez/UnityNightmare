@@ -30,7 +30,7 @@ public class GeneracionEnemigos : MonoBehaviour
             //  Instantiate(toInstantiate, new Vector3(transformP.position.x+Random.Range(3, 13), transformP.position.y+ Random.Range(3, 7), 0f), Quaternion.identity) ;
 
             GameObject myEnemy = enemigos[Random.Range(0, enemigos.Length)] as GameObject;
-            myEnemy = Instantiate(myEnemy , new  Vector3(transformP.position.x + Random.Range(3, 13), transformP.position.y + Random.Range(3, 7), 0f), Quaternion.identity) as GameObject;
+            myEnemy = Instantiate(myEnemy , new  Vector3(transformP.position.x + Random.Range(2, 14), transformP.position.y + Random.Range(2, 6), 0f), Quaternion.identity) as GameObject;
             myEnemy.transform.parent = transform;
 
             

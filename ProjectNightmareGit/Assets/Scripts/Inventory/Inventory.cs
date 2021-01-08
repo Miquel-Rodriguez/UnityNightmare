@@ -20,6 +20,8 @@ public class Inventory : MonoBehaviour
 
     private int ticketPosition=-1;
     private int potionPosition = -1;
+    private int key1position;
+    private int key2Position;
 
     void Start()
     {
@@ -88,6 +90,12 @@ public class Inventory : MonoBehaviour
                 }else if (itemId == 3 && potionPosition == -1)
                 {
                     potionPosition = i;
+                }else if (itemId == 0)
+                {
+                    key1position = i;
+                }else if (itemId == 3)
+                {
+                    key2Position = i;
                 }
                 if (itemType == "Key")
                 {
@@ -136,6 +144,13 @@ public class Inventory : MonoBehaviour
     {
         slot[potionPosition].GetComponent<Slot>().NumItems -= 1;
         slot[potionPosition].GetComponent<Slot>().UpdateNumItems();
+    }
+
+    public void InventoryLessKeyLvl1()
+    {
+
+        slot[key2Position].GetComponent<Slot>().NumItems -= 1;
+        slot[key2Position].GetComponent<Slot>().UpdateNumItems();
     }
 
 }

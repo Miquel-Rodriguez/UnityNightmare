@@ -8,7 +8,7 @@ public class Lesslife : MonoBehaviour
     private GameObject target;
     [SerializeField]
     private int life;
-    [SerializeField]
+
     private SpriteLives spriteLives;
 
     private GameObject player;
@@ -18,7 +18,8 @@ public class Lesslife : MonoBehaviour
     private Color ColorV;
 
     private bool golpeable=true;
-
+    [SerializeField]
+    private Transform checkPoint;
     public int Life
     {
         get { return life; }
@@ -80,6 +81,12 @@ public class Lesslife : MonoBehaviour
         ChangeSpritesLife();
     }
 
+    public void RestoreLife()
+    {
+        life = 12;
+        ChangeSpritesLife();
+    }
+
 
     public void TakeDamage(int damage)
     {
@@ -91,7 +98,7 @@ public class Lesslife : MonoBehaviour
         if (life <= 0)
         {
             Debug.Log("he muerto");
-            Destroy(target);
+            Die();
         }
     }
 
@@ -117,5 +124,13 @@ public class Lesslife : MonoBehaviour
         golpeable = true;
     }
 
+    private void Die()
+    {
+       GameObject.Find("Player").gameObject.transform.position = checkPoint.position;
+        FindObjectOfType<ChangeCamera>().ActivateAllCameras();
+        
+        FindObjectOfType<RoomControl>().RoomsControl();
+     
+    }
 
 }

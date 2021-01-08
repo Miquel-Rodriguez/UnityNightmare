@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class InstanceRoom : MonoBehaviour
 {
-    private bool ins;
+    [SerializeField]
     private GameObject room;
 
     private void Start()
     {
-        print(ins + " ins");
+
+        GameObject y = Instantiate(room, new Vector3(transform.position.x + 1.5f, transform.position.y + 1.5f), Quaternion.identity);
+        y.transform.SetParent(transform);
+
+
     }
     public void InstanciarRooms()
     {
-        if (ins)
-        {
-            Destroy(transform.GetChild(0));
-            GameObject toinstance = room;
-            Instantiate(toinstance, transform.position, Quaternion.identity);
-        }
+
+
+        Destroy(transform.GetChild(0).gameObject);
+        GameObject y = Instantiate(room, new Vector3(transform.position.x + 1.5f, transform.position.y + 1.5f), Quaternion.identity);
+        y.transform.SetParent(transform);
+
     }
 }

@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class OpenWithKey : MonoBehaviour
 {
     [SerializeField]
     private int numKey;
     [SerializeField]
+    private string NameCanvas;
     private Canvas canvas;
-        
+
     private MovimientoPlyaer player;
 
-    private void Awake()
+    private void Start()
     {
-        
+        canvas = GameObject.Find(NameCanvas).GetComponent<Canvas>();
         player = FindObjectOfType<MovimientoPlyaer>();   
     }
     
@@ -23,6 +24,7 @@ public class OpenWithKey : MonoBehaviour
         {
             if (player.takeKey(numKey))
             {
+                canvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "Pulsa C para habrir la puerta";
                 canvas.enabled = true;
                 if (Input.GetKeyDown("c"))
                 {
@@ -36,6 +38,11 @@ public class OpenWithKey : MonoBehaviour
                         
                     }
                 }                
+            }
+            else
+            {
+                canvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "Necesitas una llave para habrir la puerta";
+                canvas.enabled = true;
             }
         }
     }

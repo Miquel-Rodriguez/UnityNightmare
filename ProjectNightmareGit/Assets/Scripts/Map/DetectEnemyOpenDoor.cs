@@ -29,6 +29,11 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 child.GetComponent<BoxCollider2D>().enabled = false;
                 animaciones = child.GetComponent<Animator>();
                 animaciones.SetBool("open", true);
+
+                    if(GetComponent<CircleCollider2D>() != null)
+                    {
+                        FindObjectOfType<RoomControl>().l1 = false;
+                    }
                 }
                 if (child.CompareTag("DoorKey"))
                 {
@@ -62,11 +67,5 @@ public class DetectEnemyOpenDoor : MonoBehaviour
             NumBaloons--;
             ComprobarEnemigos();    
         }
-    }
-
-
-    public void Mirar()
-    {
-        print(NumBaloons + "baloons");       
     }
 }

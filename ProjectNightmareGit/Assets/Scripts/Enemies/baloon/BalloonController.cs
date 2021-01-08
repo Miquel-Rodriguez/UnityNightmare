@@ -28,7 +28,7 @@ public class BalloonController : MonoBehaviour
         do
         {
             renderEnemy.material.SetColor("_Color", Color.red);
-            yield return new WaitForSeconds(tEspera/2);
+           
             renderEnemy.material.SetColor("_Color", Color.white);
             i++;
             yield return new WaitForSeconds(tEspera/2);

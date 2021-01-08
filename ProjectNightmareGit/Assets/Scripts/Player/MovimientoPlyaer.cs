@@ -52,6 +52,14 @@ public class MovimientoPlyaer : MonoBehaviour
         return keys[pos];
     }
 
+    public void PutKeysInFalse(int inici, int numK)
+    {
+        for ( inici = 1; inici <= numK; inici++) { 
+       
+            keys[inici] = false;
+        }
+    }
+
     private float damage = 1;
     public float damageV { get{ return damage; } set { damage = value;} }
 
@@ -75,7 +83,7 @@ public class MovimientoPlyaer : MonoBehaviour
  
         ticketsUI = GameObject.FindObjectOfType<TicketsUI>();
 
-        keys = new bool[3];
+        keys = new bool[10];
     }
 
     void Update()
