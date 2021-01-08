@@ -30,9 +30,12 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 animaciones = child.GetComponent<Animator>();
                 animaciones.SetBool("open", true);
 
-                    if(GetComponent<CircleCollider2D>() != null)
+                    if(transform.CompareTag("check1"))
                     {
                         FindObjectOfType<RoomControl>().l1 = false;
+                    }else if (transform.CompareTag("check2"))
+                    {
+                        FindObjectOfType<RoomControl>().l2 = false;
                     }
                 }
                 if (child.CompareTag("DoorKey"))

@@ -133,7 +133,7 @@ public class E1Two : MonoBehaviour
         GetComponent<CircleCollider2D>().enabled = true;
         insTicket = FindObjectOfType<InsTicket>();
         insTicket.InstanceItems(gameObject);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.02f);
         Destroy(gameObject);
     }
 

@@ -93,7 +93,7 @@ public class Inventory : MonoBehaviour
                 }else if (itemId == 0)
                 {
                     key1position = i;
-                }else if (itemId == 3)
+                }else if (itemId == 4)
                 {
                     key2Position = i;
                 }

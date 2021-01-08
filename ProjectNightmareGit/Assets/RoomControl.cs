@@ -31,12 +31,12 @@ public class RoomControl : MonoBehaviour
             FindObjectOfType<Inventory>().InventoryLessKeyLvl1();
             StartCoroutine(FindObjectOfType <FirstBoundingShape>().GetNewComposite());
         }
-        if (l2 && roomsL2!=null)
+        if (l2)
         {
-            foreach (GameObject room in roomsL2)
-            {
-                room.GetComponent<InstanceRoom>().InstanciarRooms();
-            }
+            FindObjectOfType<Shop>().ActiveAfterDie();
+            FindObjectOfType<intancelvl>().InstanciarNivel2();
+            FindObjectOfType<MovimientoPlyaer>().PutKeysInFalse(3,3);
+            FindObjectOfType<Inventory>().InventoryLessKeyLvl1();
         }
         if (l3 && roomsL3 != null)
         {

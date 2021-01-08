@@ -137,7 +137,7 @@ public class Enemy1 : MonoBehaviour
         GetComponent<CircleCollider2D>().enabled = true;
         insTicket = FindObjectOfType<InsTicket>();
         insTicket.InstanceItems(gameObject);
-        yield return new WaitForSeconds(0);
+        yield return new WaitForSeconds(0.02f);
         Destroy(gameObject);
     }
 

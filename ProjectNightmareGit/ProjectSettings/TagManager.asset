@@ -21,6 +21,8 @@ TagManager:
   - VirtualCamera
   - Shadow
   - Item
+  - check1
+  - check2
   layers:
   - Default
   - TransparentFX

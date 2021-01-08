@@ -7,14 +7,14 @@ public class OpenWithKey : MonoBehaviour
     [SerializeField]
     private int numKey;
     [SerializeField]
-    private string NameCanvas;
+    private string nameCanvas;
     private Canvas canvas;
 
     private MovimientoPlyaer player;
 
     private void Start()
     {
-        canvas = GameObject.Find(NameCanvas).GetComponent<Canvas>();
+        canvas = GameObject.Find(nameCanvas).GetComponent<Canvas>();
         player = FindObjectOfType<MovimientoPlyaer>();   
     }
     
