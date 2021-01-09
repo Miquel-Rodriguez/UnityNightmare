@@ -87,7 +87,7 @@ public class BalloonEnemy : MonoBehaviour
                     1 << LayerMask.NameToLayer("Default"));
 
                 Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-                Debug.DrawRay(transform.position, forward, Color.red);
+                
 
 
 
@@ -110,7 +110,7 @@ public class BalloonEnemy : MonoBehaviour
                 }
 
 
-                Debug.DrawLine(target, transform.position, Color.green);
+           
             }
         }
       
@@ -145,7 +145,10 @@ public class BalloonEnemy : MonoBehaviour
 
     public void DestroyChild()
     {
-        transform.GetChild(1).GetComponent<Destroy>().DestroyGameObject();
+        if (transform.GetChild(1) != null){
+            transform.GetChild(1).GetComponent<Destroy>().DestroyGameObject();
+        }
+       
     }
 
  

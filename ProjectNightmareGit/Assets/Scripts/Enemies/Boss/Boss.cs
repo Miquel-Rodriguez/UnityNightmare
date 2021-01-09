@@ -47,6 +47,8 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        transform.position = new Vector2(transform.position.x + 1, transform.position.y + 1);
+        transform.position = new Vector2(transform.position.x - 1, transform.position.y - 1);
 
 
         player = GameObject.FindGameObjectWithTag("Player");
@@ -77,7 +79,6 @@ public class Boss : MonoBehaviour
         if (player != null)
         {
             Vector3 target;
-
             Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
             Debug.DrawRay(transform.position, forward, Color.red);
 
@@ -87,6 +88,7 @@ public class Boss : MonoBehaviour
 
             float distance = Vector3.Distance(target, transform.position);
             Vector3 dir = (target - transform.position).normalized;
+
             if (distance < attackRadius)
             {
                 if (!attacking)
@@ -118,7 +120,7 @@ public class Boss : MonoBehaviour
     {
         attacking = true;
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         childAttackBody.gameObject.GetComponent<Animator>().SetBool("StartRotation", true);
         yield return new WaitForSeconds(0.1f);
         childAttackBody.gameObject.GetComponent<Animator>().SetBool("StartRotation", false);

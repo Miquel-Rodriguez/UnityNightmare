@@ -36,6 +36,9 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                     }else if (transform.CompareTag("check2"))
                     {
                         FindObjectOfType<RoomControl>().l2 = false;
+                    }else if (transform.CompareTag("check3"))
+                    {
+                        FindObjectOfType<RoomControl>().l3 = false;
                     }
                 }
                 if (child.CompareTag("DoorKey"))

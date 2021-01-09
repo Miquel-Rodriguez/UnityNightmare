@@ -457,7 +457,6 @@ GameObject:
   - component: {fileID: 7912178203996256514}
   - component: {fileID: 8531983647039825448}
   - component: {fileID: 8554523838236124938}
-  - component: {fileID: 8642927196638659126}
   - component: {fileID: 1842173542}
   m_Layer: 0
   m_Name: Boss
@@ -603,24 +602,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.115
---- !u!114 &8642927196638659126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7912178203996256515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4978609dd541bbb4e81b9157a7ce3507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ticket: {fileID: 2034376095649186782, guid: cf14497ae6e3c284abfcee01a556458c, type: 3}
-  hearts:
-  - {fileID: 2950268670692121373, guid: 9940c1efb6053ef49b75864906e857ac, type: 3}
-  - {fileID: 3176262588550260863, guid: 9feaca91f0084ce4bbeb124bf185cb82, type: 3}
-  - {fileID: 3176262588550260863, guid: 9feaca91f0084ce4bbeb124bf185cb82, type: 3}
-  - {fileID: 3176262588550260863, guid: 9feaca91f0084ce4bbeb124bf185cb82, type: 3}
 --- !u!60 &1842173542
 PolygonCollider2D:
   m_ObjectHideFlags: 0

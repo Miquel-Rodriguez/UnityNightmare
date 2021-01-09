@@ -25,8 +25,14 @@ public class AttackRockSimpleDirection : MonoBehaviour
     
         }
         StartCoroutine(SearchObjective());
+        StartCoroutine(WaitForDestroy());
     }
 
+    public IEnumerator WaitForDestroy()
+    {
+        yield return new WaitForSeconds(7);
+        Destroy(gameObject);
+    }
     public IEnumerator SearchObjective()
     {
         while (true)
@@ -45,7 +51,6 @@ public class AttackRockSimpleDirection : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
             rg.MovePosition(transform.position + (dir * Random.Range(1, speed + 1)) * Time.deltaTime);              
     }
     private void OnTriggerEnter2D (Collider2D collision)

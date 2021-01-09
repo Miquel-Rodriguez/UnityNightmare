@@ -263,12 +263,12 @@ TextureImporter:
       name: keys_8
       rect:
         serializedVersion: 2
-        x: 64
+        x: 47
         y: 240
-        width: 18
+        width: 47
         height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5031761, y: 0.46505478}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -283,9 +283,9 @@ TextureImporter:
       name: keys_9
       rect:
         serializedVersion: 2
-        x: 111
+        x: 94
         y: 241
-        width: 18
+        width: 47
         height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -323,9 +323,9 @@ TextureImporter:
       name: keys_11
       rect:
         serializedVersion: 2
-        x: 17
+        x: 0
         y: 193
-        width: 16
+        width: 47
         height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

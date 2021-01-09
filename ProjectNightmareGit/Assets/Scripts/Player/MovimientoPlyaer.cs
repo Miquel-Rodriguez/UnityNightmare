@@ -21,7 +21,7 @@ public class MovimientoPlyaer : MonoBehaviour
     [SerializeField]
     private GameObject ChargedAttackPrefab;
 
-    private bool movePrevent;
+    public bool movePrevent;
 
     private float timeForDisableDash = 0.1f;
 
@@ -66,6 +66,9 @@ public class MovimientoPlyaer : MonoBehaviour
 
     public bool haveSlash { get; set; }
 
+    public bool imLiving = true;
+
+
     void Start()
     {
        
@@ -88,39 +91,49 @@ public class MovimientoPlyaer : MonoBehaviour
 
     void Update()
     {
-        Movements();
+        if (imLiving)
+        {
+            Movements();
 
-        Animations();
+            Animations();
 
-        Attack();
+            Attack();
 
 
-        ChargedAttack();
+            ChargedAttack();
 
-    
-        if (haveSlash && Input.GetKeyDown("1") && Time.time >= nextFireTime){
-            LanzarHabilidad();
-        }
-        
 
-        if (Input.GetKeyDown("j")){
-            if(speed==0){
-                //ponerse escudo para parar daño
-            }else{
-                 StartCoroutine(dash());
+            if (haveSlash && Input.GetKeyDown("1") && Time.time >= nextFireTime)
+            {
+                LanzarHabilidad();
             }
 
+
+            if (Input.GetKeyDown("j"))
+            {
+                if (speed == 0)
+                {
+                    //ponerse escudo para parar daño
+                }
+                else
+                {
+                    StartCoroutine(dash());
+                }
+
+            }
+
+            PreventMovement();
+            if (!upKeyL)
+            {
+                TimeChargeAttack();
+            }
+            else tiempo = 0;
         }
-        
-        PreventMovement();
-        if (!upKeyL)
+        else
         {
-            TimeChargeAttack();
-        }else tiempo = 0;
-
-
-
-
+            movePrevent = true;
+            PreventMovement();
+        }
     }
 
     public void TimeChargeAttack()

@@ -6,7 +6,6 @@ public class ScaleGradually : MonoBehaviour
 {
     private float x;
     private float y;
-    private Vector3 newSize;
     void Start()
     {
        

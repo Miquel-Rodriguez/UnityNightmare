@@ -64,7 +64,7 @@ public class E1Two : MonoBehaviour
                 1 << LayerMask.NameToLayer("Default"));
 
             Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-            Debug.DrawRay(transform.position, forward, Color.red);
+            
 
 
             target = player.transform.position;
@@ -90,7 +90,7 @@ public class E1Two : MonoBehaviour
 
 
 
-            Debug.DrawLine(target, transform.position, Color.green);
+       
         }
 
     }
@@ -139,7 +139,12 @@ public class E1Two : MonoBehaviour
 
     public void MoveForce(Vector2 v)
     {
-        rb.AddForce(v * 100000);
+        if (hp <= 0)
+        {
+
+        }
+        else rb.AddForce(v * 100000);
+
         // new Vector3(transform.position.x, transform.position.y)
     }
 

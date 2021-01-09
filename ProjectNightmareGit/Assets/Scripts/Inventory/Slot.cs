@@ -22,7 +22,7 @@ public class Slot : MonoBehaviour
     {
         slotIcon = transform.GetChild(0);
         slotNum = transform.GetChild(1);
-        NumItems = 1;
+        NumItems = 0;
     }
 
     public void UpdateSlot()

@@ -66,8 +66,6 @@ public class Enemy1 : MonoBehaviour
             1 << LayerMask.NameToLayer("Default"));
         */
         Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-        Debug.DrawRay(transform.position, forward, Color.red);
-
       
         target = player.transform.position;
 
@@ -96,7 +94,7 @@ public class Enemy1 : MonoBehaviour
 
             
 
-        Debug.DrawLine(target, transform.position, Color.green);
+        
         }
         
     }
@@ -143,8 +141,12 @@ public class Enemy1 : MonoBehaviour
 
     public void MoveForce(Vector2 v)
     {
-        rb.AddForce(v * 100000);
-       // new Vector3(transform.position.x, transform.position.y)
+        if (hp<=0)
+        {
+
+        }else rb.AddForce(v * 100000);
+
+        // new Vector3(transform.position.x, transform.position.y)
     }
 
     public IEnumerator CambiarColor()

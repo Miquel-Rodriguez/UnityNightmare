@@ -25,6 +25,11 @@ public class Lesslife : MonoBehaviour
         get { return life; }
     }
 
+    private bool start = false;
+    private bool isFadeIn = false;
+    private float alpha = 0;
+    private float fadeTime = 0.5f;
+
 
 
     public void Awake()
@@ -98,7 +103,7 @@ public class Lesslife : MonoBehaviour
         if (life <= 0)
         {
             Debug.Log("he muerto");
-            Die();
+            StartCoroutine(Die());
         }
     }
 
@@ -124,13 +129,54 @@ public class Lesslife : MonoBehaviour
         golpeable = true;
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
-       GameObject.Find("Player").gameObject.transform.position = checkPoint.position;
+        FadeIn();
+        GetComponentInParent<MovimientoPlyaer>().imLiving = false;
+        yield return new WaitForSeconds(fadeTime+1.5f);
+        GameObject.Find("Player").gameObject.transform.position = checkPoint.position;
         FindObjectOfType<ChangeCamera>().ActivateAllCameras();
-        
         FindObjectOfType<RoomControl>().RoomsControl();
-     
+        GetComponentInParent<MovimientoPlyaer>().imLiving = true;
+        GetComponentInParent<MovimientoPlyaer>().movePrevent = false;
+        FadeOut();
     }
 
+
+    private void OnGUI()
+    {
+        if (!start)
+            return;
+
+        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
+
+        Texture2D tex;
+        tex = new Texture2D(1, 1);
+        tex.SetPixel(0, 0, Color.black);
+        tex.Apply();
+
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), tex);
+
+        if (isFadeIn)
+        {
+            alpha = Mathf.Lerp(alpha, 2.1f, fadeTime * Time.deltaTime);
+
+        }
+        else
+        {
+            alpha = Mathf.Lerp(alpha, -0.1f, fadeTime * Time.deltaTime);
+            if (alpha < 0) start = false;
+        }
+    }
+
+    private void FadeIn()
+    {
+        start = true;
+        isFadeIn = true;
+    }
+
+    private void FadeOut()
+    {
+        isFadeIn = false;
+    }
 }

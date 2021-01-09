@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class RoomControl : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] roomsL1;
-    [SerializeField]
-    private GameObject[] roomsL2;
-    [SerializeField]
-    private GameObject[] roomsL3;
 
     public bool l1 { get; set; }
     public bool l2 { get; set; }
@@ -36,14 +30,11 @@ public class RoomControl : MonoBehaviour
             FindObjectOfType<Shop>().ActiveAfterDie();
             FindObjectOfType<intancelvl>().InstanciarNivel2();
             FindObjectOfType<MovimientoPlyaer>().PutKeysInFalse(3,3);
-            FindObjectOfType<Inventory>().InventoryLessKeyLvl1();
+            FindObjectOfType<Inventory>().InventoryLessKeyLvl2();
         }
-        if (l3 && roomsL3 != null)
+        if (l3)
         {
-            foreach (GameObject room in roomsL3)
-            {
-                room.GetComponent<InstanceRoom>().InstanciarRooms();
-            }
+            FindObjectOfType<intancelvl>().InstanciarNivel3();
         }
         FindObjectOfType<Lesslife>().RestoreLife();
     }

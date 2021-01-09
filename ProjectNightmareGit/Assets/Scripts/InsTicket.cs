@@ -36,8 +36,6 @@ public class InsTicket : MonoBehaviour
             for (int j = 0; j < num; j++)
             {
                 GameObject instance = Instantiate(ticket, new Vector2(v.x, v.y), Quaternion.identity);
-                print(v.x + " x");
-                print(v.y + " y");
                 instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
                 instance.transform.SetParent(transform);
             }
@@ -71,9 +69,9 @@ public class InsTicket : MonoBehaviour
     */
     public void InstanceHearts()
     {
-        for(int i = 11; i > player.Life; i--)
+        for(int i = 11; i > player.Life; i-=3)
         {
-            if (Random.Range(0, 3 + 1) == 1){ 
+            if (Random.Range(0, 7 + 1) == 1){ 
             GameObject instance = Instantiate(hearts[Random.Range(0, 1 + 1)], new Vector2(v.x, v.y), Quaternion.identity);
             instance.GetComponent<Rigidbody2D>().AddForce(new Vector2(RandomF(), RandomF()));
             instance.transform.SetParent(transform);

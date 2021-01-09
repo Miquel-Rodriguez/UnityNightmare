@@ -23,6 +23,7 @@ TagManager:
   - Item
   - check1
   - check2
+  - check3
   layers:
   - Default
   - TransparentFX

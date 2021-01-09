@@ -21,7 +21,8 @@ public class Inventory : MonoBehaviour
     private int ticketPosition=-1;
     private int potionPosition = -1;
     private int key1position;
-    private int key2Position;
+    private int key2position;
+    private int key3position;
 
     void Start()
     {
@@ -90,24 +91,34 @@ public class Inventory : MonoBehaviour
                 }else if (itemId == 3 && potionPosition == -1)
                 {
                     potionPosition = i;
-                }else if (itemId == 0)
-                {
-                    key1position = i;
                 }else if (itemId == 4)
                 {
-                    key2Position = i;
+                    key1position = i;
+                    slot[i].GetComponent<Slot>().NumItems += 1;
+                    slot[i].GetComponent<Slot>().UpdateNumItems();
                 }
+                else if (itemId == 2)
+                {
+                    key2position = i;
+                    slot[i].GetComponent<Slot>().NumItems += 1;
+                    slot[i].GetComponent<Slot>().UpdateNumItems();
+                }
+                else if (itemId == 5)
+                {
+                    key3position = i;
+                    slot[i].GetComponent<Slot>().NumItems += 1;
+                    slot[i].GetComponent<Slot>().UpdateNumItems();
+                }else if (itemId ==     0)
+                {
+                    slot[i].GetComponent<Slot>().NumItems += 1;
+                    slot[i].GetComponent<Slot>().UpdateNumItems();
+                }
+
+
                 if (itemType == "Key")
                 {
                     FindObjectOfType<MovimientoPlyaer>().putKey(itemObject.GetComponent<GetKey>().NumKey);
                 }
-
-                if(itemId == 4)//potis
-                {
-
-                    return;
-                }
-
 
                 slot[i].GetComponent<Slot>().UpdateSlot();
                 slot[i].GetComponent<Slot>().Empty = false;
@@ -124,12 +135,16 @@ public class Inventory : MonoBehaviour
                 {
                     FindObjectOfType<MovimientoPlyaer>().PlusTicket();
                 }
-                    
-                 Destroy(itemObject);
+
+                if (itemType == "Key")
+                {
+                    FindObjectOfType<MovimientoPlyaer>().putKey(itemObject.GetComponent<GetKey>().NumKey);
+                }
+
+                Destroy(itemObject);
                 
                 return;
             }
-
             
         }
     }
@@ -149,8 +164,23 @@ public class Inventory : MonoBehaviour
     public void InventoryLessKeyLvl1()
     {
 
-        slot[key2Position].GetComponent<Slot>().NumItems -= 1;
-        slot[key2Position].GetComponent<Slot>().UpdateNumItems();
+        slot[key1position].GetComponent<Slot>().NumItems -= 1;
+        print("1" + slot[key1position].GetComponent<Slot>().NumItems);
+        slot[key1position].GetComponent<Slot>().UpdateNumItems();
+       
+
+        slot[key2position].GetComponent<Slot>().NumItems -= 1;
+        print("2" + slot[key2position].GetComponent<Slot>().NumItems);
+        slot[key2position].GetComponent<Slot>().UpdateNumItems();
     }
+
+    public void InventoryLessKeyLvl2()
+    {
+
+        slot[key3position].GetComponent<Slot>().NumItems -= 1;
+        slot[key3position].GetComponent<Slot>().UpdateNumItems();
+    }
+
+
 
 }
