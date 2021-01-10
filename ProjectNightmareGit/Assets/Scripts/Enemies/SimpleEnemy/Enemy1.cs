@@ -124,6 +124,7 @@ public class Enemy1 : MonoBehaviour
         StartCoroutine(CambiarColor());
         if ((hp-=d) <= 0)
         {
+            
             StartCoroutine(Morir());
            
 

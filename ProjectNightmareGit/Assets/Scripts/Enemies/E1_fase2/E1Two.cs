@@ -141,7 +141,7 @@ public class E1Two : MonoBehaviour
     {
         if (hp <= 0)
         {
-
+           
         }
         else rb.AddForce(v * 100000);
 

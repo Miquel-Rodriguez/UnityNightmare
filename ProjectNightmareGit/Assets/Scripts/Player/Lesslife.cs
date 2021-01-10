@@ -30,7 +30,7 @@ public class Lesslife : MonoBehaviour
     private float alpha = 0;
     private float fadeTime = 0.5f;
 
-
+  
 
     public void Awake()
     {

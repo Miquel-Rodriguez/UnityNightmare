@@ -10,6 +10,8 @@ public class AttackStone : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rg;
     private Vector3 target, dir;
+
+    private SoundRockDestroy sound;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -20,6 +22,8 @@ public class AttackStone : MonoBehaviour
             dir = (target - transform.position).normalized;
     
         }
+
+        sound = FindObjectOfType<SoundRockDestroy>();
     }
 
     private void FixedUpdate()
@@ -31,15 +35,16 @@ public class AttackStone : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("comprobando trigeer");
         if (collision.transform.CompareTag("BoxPlayer") || collision.transform.CompareTag("Attack") || collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Door"))
         {
+
             Destroy(gameObject);
         }
     }
 
     private void OnBecameInvisible()
     {
+        sound.SoundkDestroy();
         Destroy(gameObject);
     }
 }

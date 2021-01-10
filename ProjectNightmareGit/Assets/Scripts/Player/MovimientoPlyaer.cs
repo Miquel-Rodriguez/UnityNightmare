@@ -7,7 +7,6 @@ public class MovimientoPlyaer : MonoBehaviour
 
     [SerializeField]
     private float speed;
-
     public float speedV { get { return speed;} set{ speed = value;}}
 
     private Animator anim;
@@ -62,11 +61,15 @@ public class MovimientoPlyaer : MonoBehaviour
 
     private float damage = 1;
     public float damageV { get{ return damage; } set { damage = value;} }
-
-
     public bool haveSlash { get; set; }
-
     public bool imLiving = true;
+
+
+    private AudioSource sound;
+    [SerializeField]
+    private AudioClip dashSound;
+
+    private TicketSound ticketSound;
 
 
     void Start()
@@ -87,6 +90,10 @@ public class MovimientoPlyaer : MonoBehaviour
         ticketsUI = GameObject.FindObjectOfType<TicketsUI>();
 
         keys = new bool[10];
+
+        sound = GetComponent<AudioSource>();
+
+        ticketSound = FindObjectOfType<TicketSound>();
     }
 
     void Update()
@@ -111,13 +118,14 @@ public class MovimientoPlyaer : MonoBehaviour
 
             if (Input.GetKeyDown("j"))
             {
-                if (speed == 0)
+                if (mov.x ==0 && mov.y ==0)
                 {
                     //ponerse escudo para parar daño
                 }
                 else
                 {
                     StartCoroutine(dash());
+                    
                 }
 
             }
@@ -203,6 +211,8 @@ public class MovimientoPlyaer : MonoBehaviour
         if (Input.GetKeyDown("k") && !attacking)
         {
             anim.SetTrigger("attacking");
+            GetComponentInChildren<SimpleAttack>().SoundAttackSword();
+
         }
 
         //reposicionar el BoxCollider del ataque según la dirección en la que nos movemos
@@ -229,6 +239,9 @@ public class MovimientoPlyaer : MonoBehaviour
 
     public IEnumerator dash()
     {
+        sound.clip = dashSound;
+        sound.Play();
+            
             //Dash Visible (no actua si está quieto)
             //print("key e");
             speed *= 4;
@@ -319,6 +332,7 @@ public class MovimientoPlyaer : MonoBehaviour
     public void PlusTicket()
     {
         Tickets++;
+        ticketSound.SoundTicket();
         UploadTickets();
     }
 

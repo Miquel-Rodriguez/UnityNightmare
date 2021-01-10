@@ -11,10 +11,16 @@ public class SimpleAttack : MonoBehaviour
 
     private GameObject player;
     private Animator AnimP;
+
+    private AudioSource sound;
+    [SerializeField]
+    private AudioClip[] attackSword;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         AnimP = player.GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,4 +35,11 @@ public class SimpleAttack : MonoBehaviour
         }
         
     }
+
+    public void SoundAttackSword()
+    {
+        sound.clip = attackSword[Random.Range(0,3)];
+        sound.Play();
+    }
+
 }

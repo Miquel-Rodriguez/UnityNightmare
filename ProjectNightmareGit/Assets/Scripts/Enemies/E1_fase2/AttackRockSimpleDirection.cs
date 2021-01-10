@@ -11,7 +11,7 @@ public class AttackRockSimpleDirection : MonoBehaviour
     private Rigidbody2D rg;
     private Vector3 target, dir;
     private bool positive = true;
-
+    private SoundRockDestroy sound;
     public bool Positive { get { return positive; } set { positive = value; } }
 
     void Start()
@@ -24,6 +24,7 @@ public class AttackRockSimpleDirection : MonoBehaviour
             dir = (target - transform.position).normalized;
     
         }
+        sound = FindObjectOfType<SoundRockDestroy>();
         StartCoroutine(SearchObjective());
         StartCoroutine(WaitForDestroy());
     }
@@ -57,6 +58,7 @@ public class AttackRockSimpleDirection : MonoBehaviour
     {
         if(collision.transform.CompareTag("BoxPlayer") || collision.transform.CompareTag("Attack") || collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Door"))
         {
+            sound.SoundkDestroy();
             Destroy(gameObject);
         }
     }

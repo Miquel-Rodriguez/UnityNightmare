@@ -45,6 +45,7 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                 {
                     child.GetComponent<BoxCollider2D>().enabled = false;
                     child.GetChild(0).gameObject.SetActive(true);
+
                 }
                 
                 if (child.CompareTag("MultiStone"))

@@ -23,9 +23,7 @@ public class EStatic4 : MonoBehaviour
     
 
     public IEnumerator Attack()
-    {
-        
-            print("empezando ataque qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+    { 
             while (Atacando)
             {
                 yield return new WaitForSeconds(1.5f);
@@ -48,6 +46,7 @@ public class EStatic4 : MonoBehaviour
     {
         rock = Instantiate(rockPrefab, new Vector2(transform.position.x+x/6, transform.position.y+y/6), transform.rotation);
         rock.GetComponent<Rigidbody2D>().AddForce(new Vector2(x, y) * speed);
+        rock.transform.SetParent(transform);
     }
 
     
