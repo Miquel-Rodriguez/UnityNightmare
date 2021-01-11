@@ -43,6 +43,10 @@ public class warp : MonoBehaviour
 
                 GameObject.Find(camera).GetComponent<CinemachineConfiner>().m_BoundingShape2D=(limits);
             }
+            if(GetComponent<HeartSoundController>() != null)
+            {
+                GetComponent<HeartSoundController>().HeartSoundUp();
+            }
             FadeOut();
 
            

@@ -62,6 +62,7 @@ public class BalloonController : MonoBehaviour
         anim.SetBool("explosion", true);
 
         parentScript.DestroyChild();
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.8f);
         parentScript.DestroyObject();
     }

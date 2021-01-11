@@ -34,8 +34,9 @@ public class OpenWithKey : MonoBehaviour
                     {
                         box.enabled = false;
                         GetComponentInParent<Animator>().SetBool("open", true);
-                        
-                        
+
+                        GetComponent<AudioSource>().Play();
+                        GetComponentInParent<OpenDKSound>().playOpen();
                     }
                 }                
             }

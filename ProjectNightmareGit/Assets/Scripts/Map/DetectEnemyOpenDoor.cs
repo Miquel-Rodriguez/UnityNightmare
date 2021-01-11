@@ -54,8 +54,9 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                     child.GetComponent<EStatic4>().Atacando = false;
                 }
             }
-
-            //sonidohabrir puerta
+            if (GetComponent<AudioSource>() != null) GetComponent<AudioSource>().Play();
+           
+           
         }
     }
 

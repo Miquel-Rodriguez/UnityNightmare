@@ -118,6 +118,7 @@ public class Inventory : MonoBehaviour
                 if (itemType == "Key")
                 {
                     FindObjectOfType<MovimientoPlyaer>().putKey(itemObject.GetComponent<GetKey>().NumKey);
+                    FindObjectOfType<KeyPickUpSound>().KeySound();
                 }
 
                 slot[i].GetComponent<Slot>().UpdateSlot();
