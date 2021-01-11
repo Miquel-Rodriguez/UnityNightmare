@@ -31,6 +31,7 @@ public class MovimientoPlyaer : MonoBehaviour
     private float nextFireTime;
     private float cooldawnDistanceAttack = 2;
 
+
     private TicketsUI ticketsUI;
     private int InitialTtickets = 0;
     
@@ -70,6 +71,9 @@ public class MovimientoPlyaer : MonoBehaviour
     private AudioClip dashSound;
 
     private TicketSound ticketSound;
+
+    private float nextDashTime;
+    private float cooldawnDash=0.6f;
 
 
     void Start()
@@ -116,7 +120,7 @@ public class MovimientoPlyaer : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown("j"))
+            if (Input.GetKeyDown("j") && Time.time >= nextDashTime)
             {
                 if (mov.x ==0 && mov.y ==0)
                 {
@@ -210,6 +214,7 @@ public class MovimientoPlyaer : MonoBehaviour
         //si pulsamos k activamos la animación de atacar
         if (Input.GetKeyDown("k") && !attacking)
         {
+            
             anim.SetTrigger("attacking");
             GetComponentInChildren<SimpleAttack>().SoundAttackSword();
 
@@ -234,11 +239,13 @@ public class MovimientoPlyaer : MonoBehaviour
             }
 
         }
+        if (damageV != 1) damageV = 1;
     }
 
 
     public IEnumerator dash()
     {
+        nextDashTime = Time.time + cooldawnDash;
         sound.clip = dashSound;
         sound.Play();
             
@@ -247,12 +254,11 @@ public class MovimientoPlyaer : MonoBehaviour
             speed *= 4;
             yield return new WaitForSeconds(timeForDisableDash);
             speed /= 4;
+        //Dash invisible, se puede ejecutar parado
+        //gameObject.transform.Translate(anim.GetFloat("movX"), anim.GetFloat("movY"), 0f);
 
-            //Dash invisible, se puede ejecutar parado
-            //gameObject.transform.Translate(anim.GetFloat("movX"), anim.GetFloat("movY"), 0f);
-
-            //Dash invisible, se puede ejecutar parado
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*100000*Time.deltaTime, anim.GetFloat("movY")*100000* Time.deltaTime));
+        //Dash invisible, se puede ejecutar parado
+        //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (anim.GetFloat("movX")*100000*Time.deltaTime, anim.GetFloat("movY")*100000* Time.deltaTime));
     }
 
 
@@ -281,18 +287,13 @@ public class MovimientoPlyaer : MonoBehaviour
             else if (tiempo >= 2){
                 damageV += tiempo;
             }
-
+            if (tiempo > 10) damageV = 10;
             movePrevent = false;
             
             anim.SetTrigger("ChargeAttack");
             ChargeAttackCollider.offset = new Vector2(anim.GetFloat("movX") * 1.6f, anim.GetFloat("movY") / 2.5f);
 
             StartCoroutine(Wait(0.1f));
-
-            // Slash slash = slashObj.GetComponent<Slash>();
-            //slash.mov.x = anim.GetFloat("movX");
-            //slash.mov.y = anim.GetFloat("movY");
-
 
         }
     }

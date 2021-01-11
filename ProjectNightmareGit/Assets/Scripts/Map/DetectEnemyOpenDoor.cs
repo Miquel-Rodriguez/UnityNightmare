@@ -40,19 +40,22 @@ public class DetectEnemyOpenDoor : MonoBehaviour
                     {
                         FindObjectOfType<RoomControl>().l3 = false;
                     }
+                
                 }
                 if (child.CompareTag("DoorKey"))
                 {
                     child.GetComponent<BoxCollider2D>().enabled = false;
                     child.GetChild(0).gameObject.SetActive(true);
-
+                    
                 }
                 
                 if (child.CompareTag("MultiStone"))
                 {
                     child.GetComponent<EStatic4>().Atacando = false;
                 }
-            }   
+            }
+
+            //sonidohabrir puerta
         }
     }
 
