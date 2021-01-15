@@ -32,7 +32,7 @@ public class ChangeTo1 : MonoBehaviour
     {
         FadeIn();
         yield return new WaitForSeconds(fadeTime + 1.5f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         FadeOut();
     }
 

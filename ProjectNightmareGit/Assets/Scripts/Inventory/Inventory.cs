@@ -24,6 +24,8 @@ public class Inventory : MonoBehaviour
     private int key2position;
     private int key3position;
 
+    private PauseGame pauseGame;
+
     void Start()
     {
         allSlots = slotHolder.transform.childCount;
@@ -33,22 +35,26 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < allSlots; i++)
         {
             slot[i] = slotHolder.transform.GetChild(i).gameObject;
-           
         }
+
+        pauseGame = FindObjectOfType<PauseGame>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (pauseGame.IsGameRunning())
         {
-            inventoryEnabled = !inventoryEnabled;
-        }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                inventoryEnabled = !inventoryEnabled;
+            }
 
-        if (inventoryEnabled)
-        {
-            inventory.SetActive(true);
-        }
-        else inventory.SetActive(false);
+            if (inventoryEnabled)
+            {
+                inventory.SetActive(true);
+            }
+            else inventory.SetActive(false);
+        }   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

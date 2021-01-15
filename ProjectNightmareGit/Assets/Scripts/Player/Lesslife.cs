@@ -30,7 +30,7 @@ public class Lesslife : MonoBehaviour
     private float alpha = 0;
     private float fadeTime = 0.5f;
 
-  
+    [SerializeField] private AudioClip[] clips;
 
     public void Awake()
     {
@@ -50,12 +50,19 @@ public class Lesslife : MonoBehaviour
             {
                 TakeDamage(1);
                 StartCoroutine(CambiarTransperencia());
-                
-            }else if (collision.CompareTag("explosion"))
+                GetComponent<AudioSource>().clip = clips[Random.Range(0, 5)];
+                GetComponent<AudioSource>().Play();
+
+            }
+            else if (collision.CompareTag("explosion"))
             {
                 TakeDamage(3);
                 StartCoroutine(CambiarTransperencia());
+                GetComponent<AudioSource>().clip = clips[Random.Range(0, 5)];
+                GetComponent<AudioSource>().Play();
             }
+
+            
         }
 
         if (collision.CompareTag("heart"))

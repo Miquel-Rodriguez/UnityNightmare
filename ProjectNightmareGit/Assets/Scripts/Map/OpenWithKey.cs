@@ -24,7 +24,7 @@ public class OpenWithKey : MonoBehaviour
         {
             if (player.takeKey(numKey))
             {
-                canvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "Pulsa C para habrir la puerta";
+                canvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "Pulsa C para abrir la puerta";
                 canvas.enabled = true;
                 if (Input.GetKeyDown("c"))
                 {

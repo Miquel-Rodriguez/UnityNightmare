@@ -75,6 +75,7 @@ public class MovimientoPlyaer : MonoBehaviour
     private float nextDashTime;
     private float cooldawnDash=0.6f;
 
+    private PauseGame pauseGame;
 
     void Start()
     {
@@ -98,54 +99,59 @@ public class MovimientoPlyaer : MonoBehaviour
         sound = GetComponent<AudioSource>();
 
         ticketSound = FindObjectOfType<TicketSound>();
+
+        pauseGame = FindObjectOfType<PauseGame>();
     }
 
     void Update()
     {
-        if (imLiving)
+        if (pauseGame.IsGameRunning())
         {
-            Movements();
-
-            Animations();
-
-            Attack();
-
-
-            ChargedAttack();
-
-
-            if (haveSlash && Input.GetKeyDown("1") && Time.time >= nextFireTime)
+            if (imLiving)
             {
-                LanzarHabilidad();
-            }
+                Movements();
+
+                Animations();
+
+                Attack();
 
 
-            if (Input.GetKeyDown("j") && Time.time >= nextDashTime)
-            {
-                if (mov.x ==0 && mov.y ==0)
+                ChargedAttack();
+
+
+                if (haveSlash && Input.GetKeyDown("1") && Time.time >= nextFireTime)
                 {
-                    //ponerse escudo para parar daño
-                }
-                else
-                {
-                    StartCoroutine(dash());
-                    
+                    LanzarHabilidad();
                 }
 
-            }
 
-            PreventMovement();
-            if (!upKeyL)
-            {
-                TimeChargeAttack();
+                if (Input.GetKeyDown("j") && Time.time >= nextDashTime)
+                {
+                    if (mov.x == 0 && mov.y == 0)
+                    {
+                        //ponerse escudo para parar daño
+                    }
+                    else
+                    {
+                        StartCoroutine(dash());
+
+                    }
+
+                }
+
+                PreventMovement();
+                if (!upKeyL)
+                {
+                    TimeChargeAttack();
+                }
+                else tiempo = 0;
             }
-            else tiempo = 0;
-        }
-        else
-        {
-            movePrevent = true;
-            PreventMovement();
-        }
+            else
+            {
+                movePrevent = true;
+                PreventMovement();
+            }
+        }    
     }
 
     public void TimeChargeAttack()
