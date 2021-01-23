@@ -42,7 +42,7 @@ public class OpenWithKey : MonoBehaviour
             }
             else
             {
-                canvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "Necesitas una llave para habrir la puerta";
+                canvas.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = "Necesitas una llave para abrir la puerta";
                 canvas.enabled = true;
             }
         }
